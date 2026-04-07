@@ -21,9 +21,11 @@ export default function HeroImage() {
         }}
       >
         <Image
-          src="https://lh3.googleusercontent.com/..."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZKu6nIZoUXBe0LdBJgbVjrJckVjSbOryprH-g1VxwmZViOAHWD2iHjQPwAdUqGQZHZhwS0sLos0VTLFX4parPXAVfBigdCq_d8C1ezuNrkE1RlyhkCpNNEs1L8Gpr9JfQ79uLHWpudqIguBMoY0e3BI6Zxp-TO55vfMmZPFWm1f27DT-1eRa0r2zAY4ykZtm-fqJRV5HgrP3UDVDRKjqTngwiqMmULsrpN928tgDPA9IsWupq8ZqBacwmdMkXqZiAn-aLac1ncWA"
           alt="Imagen"
           fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          priority
           className="object-cover"
         />
       </div>
