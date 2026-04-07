@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { SITE } from "@/constants/site"
+import Button from "@/components/ui/Button"
 
 export default function HeroContent() {
   return (
@@ -24,17 +25,15 @@ export default function HeroContent() {
       </p>
 
       <div className="flex flex-wrap gap-6 items-center">
-        <a
-          href={"https://wa.me/" + SITE.whatsapp}
-          target="_blank"
-          className="px-10 py-4 bg-primary text-white rounded-full"
-        >
+        
+        <Button href={`https://wa.me/${SITE.whatsapp}`}>
           Pedir por WhatsApp
-        </a>
+        </Button>
 
         <Link href="#services">
           Explorar Catálogo
         </Link>
+
       </div>
 
     </div>
