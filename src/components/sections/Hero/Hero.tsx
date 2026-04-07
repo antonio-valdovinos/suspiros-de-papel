@@ -5,8 +5,7 @@ import Container from "@/components/ui/Container"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden px-8 py-20">
-
+    <section className="line-art-bg relative min-h-[90vh] flex items-center overflow-hidden py-20">
       <HeroBackground />
 
       <Container>
