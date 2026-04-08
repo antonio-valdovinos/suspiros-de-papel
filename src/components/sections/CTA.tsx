@@ -12,7 +12,7 @@ export default function CTA() {
       <section
         ref={ref}
         id="contact"
-        className="scroll-reveal py-40 px-8"
+        className="scroll-reveal py-40 px-8 scroll-mt-20"
       >
         <div
           className="max-w-6xl mx-auto rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden bg-primary shadow-2xl shadow-primary/30"

@@ -37,7 +37,7 @@ export default function HowItWorks() {
     <section
       ref={ref}
       id="how-it-works"
-      className="scroll-reveal py-20 lg:py-40 relative bg-surface-container-low"
+      className="scroll-reveal py-20 lg:py-40 relative bg-surface-container-low scroll-mt-20"
     >
       <Container>
 

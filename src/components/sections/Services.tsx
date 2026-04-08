@@ -125,7 +125,7 @@ export default function Services() {
     <section
       ref={ref}
       id="services"
-      className="scroll-reveal py-20 lg:py-40 relative overflow-hidden line-art-bg"
+      className="scroll-reveal py-20 lg:py-40 relative overflow-hidden line-art-bg scroll-mt-20"
     >
       {/* Blob decorativo */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary-fixed/20 blur-3xl organic-blob" />

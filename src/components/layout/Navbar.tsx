@@ -38,19 +38,20 @@ export default function Navbar() {
       <Container>
         <nav className="flex justify-between items-center py-4">
           {/* LOGO */}
-          <Link
-            href="/"
-            className="text-2xl font-headline font-bold text-primary tracking-tight no-underline"
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="text-2xl font-headline font-bold text-primary tracking-tight cursor-pointer bg-transparent border-none"
           >
             Suspiros{" "}
             <span className="italic font-normal">De Papel</span>
-          </Link>
+          </button>
 
           {/* LINKS desktop */}
           <div className="hidden md:flex items-center gap-12">
             <NavLink href="#services">Servicios</NavLink>
             <NavLink href="#how-it-works">Proceso</NavLink>
-            <NavLink href="#portfolio">Portfolio</NavLink>
+            {/* TODO: reemplazar href cuando exista la sección #portfolio */}
+            <NavLink href="#" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Portfolio</NavLink>
 
             <Link
               href={waLink}
@@ -78,7 +79,8 @@ export default function Navbar() {
         <div className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/10 px-4 py-6 flex flex-col gap-4">
           <a href="#services"    onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Servicios</a>
           <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Proceso</a>
-          <a href="#portfolio"   onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Portfolio</a>
+          {/* TODO: reemplazar href cuando exista la sección #portfolio */}
+          <a href="#" onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }) }} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Portfolio</a>
           <a href={waLink} target="_blank" rel="noopener noreferrer"
              className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center mt-2">
             Contacto
@@ -89,10 +91,30 @@ export default function Navbar() {
   )
 }
 
-function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
+type NavLinkProps = {
+  href: string
+  onClick?: () => void
+  children: React.ReactNode
+}
+
+function NavLink({ href, onClick, children }: NavLinkProps) {
+  const handleClick = (e: React.MouseEvent) => {
+    if (href.startsWith("#") && href.length > 1) {
+      e.preventDefault()
+      const el = document.getElementById(href.slice(1))
+      if (el) {
+        const navHeight = 80 // navbar ~64px + margen
+        const top = el.getBoundingClientRect().top + window.scrollY - navHeight
+        window.scrollTo({ top, behavior: "smooth" })
+      }
+    }
+    onClick?.()
+  }
+
   return (
     <Link
       href={href}
+      onClick={handleClick}
       className="text-on-surface-variant text-sm font-medium no-underline hover:text-primary transition-colors"
     >
       {children}

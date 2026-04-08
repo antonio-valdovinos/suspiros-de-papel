@@ -78,7 +78,7 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* lo maneja JS por sección */
 }
 
 body {

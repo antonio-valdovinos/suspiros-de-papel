@@ -20,11 +20,14 @@ export function useScrollReveal() {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.classList.add("visible")
-          observer.disconnect()
+          // Pequeño delay para no competir con animaciones de scroll
+          setTimeout(() => {
+            el.classList.add("visible")
+            observer.disconnect()
+          }, 100)
         }
       },
-      { threshold: 0 }
+      { threshold: 0.1 } // 10% visible antes de disparar
     )
 
     observer.observe(el)
