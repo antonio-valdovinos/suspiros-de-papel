@@ -16,7 +16,7 @@ export default function HeroContent() {
       </div>
 
       {/* Headline — text-8xl en lg igual que el boceto */}
-      <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-on-surface leading-[1.1] tracking-tight italic">
+      <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-on-surface leading-[1.1] tracking-tight italic">
         Detalles personalizados que cuentan
         <span className="block font-display font-normal text-primary mt-2">
           tu historia

@@ -6,7 +6,7 @@
    DESIGN TOKENS — Suspiros De Papel
    Define CSS vars Y clases Tailwind (bg-primary, text-primary, etc.)
    ═══════════════════════════════════════════════════════════ */
-@theme {
+:root {
   /* ── Fuentes ─────────────────────────────────────────── */
   --font-family-headline: var(--font-noto-serif), serif;
   --font-family-body:     var(--font-plus-jakarta), sans-serif;
