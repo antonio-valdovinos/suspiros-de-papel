@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 
 /**
  * useScrollReveal
- * Agrega .animate-hidden al montar y .visible cuando el elemento
+ * Agrega .reveal-hidden al montar y .visible cuando el elemento
  * entra al viewport. Así evitamos el problema de SSR con opacity-0.
  */
 export function useScrollReveal() {
@@ -15,7 +15,7 @@ export function useScrollReveal() {
     if (!el) return
 
     // Primero ocultamos (ya que el CSS base es visible para SSR)
-    el.classList.add("animate-hidden")
+    el.classList.add("reveal-hidden")
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,7 +24,7 @@ export function useScrollReveal() {
           observer.disconnect()
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0 }
     )
 
     observer.observe(el)

@@ -15,76 +15,111 @@ export default function Navbar() {
 
   return (
     <header
-      className={`
-        fixed top-0 w-full z-50 transition-all duration-500
-        border-b border-[rgba(219,193,186,0.15)]
-        ${scrolled
-          ? "bg-[rgba(253,249,245,0.75)] backdrop-blur-xl shadow-sm"
-          : "bg-[rgba(253,249,245,0.6)] backdrop-blur-xl"
-        }
-      `}
+      style={{
+        position: "fixed",
+        top: 0,
+        width: "100%",
+        zIndex: 50,
+        backdropFilter: "blur(24px)",
+        WebkitBackdropFilter: "blur(24px)",
+        borderBottom: "1px solid rgba(219, 193, 186, 0.1)",
+        backgroundColor: scrolled
+          ? "rgba(253, 249, 245, 0.92)"
+          : "rgba(253, 249, 245, 0.60)",
+        transition: "background-color 0.5s ease",
+      }}
     >
-      <nav className="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
-
+      <nav
+        style={{
+          maxWidth: "80rem",
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "1rem 2rem",
+        }}
+      >
         {/* LOGO */}
         <Link
           href="/"
-          className="text-2xl font-serif font-bold tracking-tight"
-          style={{ color: "var(--color-primary)" }}
+          style={{
+            fontSize: "1.5rem",
+            fontFamily: "var(--font-noto-serif), serif",
+            fontWeight: 700,
+            color: "#95442a",
+            letterSpacing: "-0.025em",
+            textDecoration: "none",
+          }}
         >
-          Suspiros <span className="italic font-normal">De Papel</span>
+          Suspiros{" "}
+          <span style={{ fontStyle: "italic", fontWeight: 400 }}>
+            De Papel
+          </span>
         </Link>
 
-        {/* LINKS — desktop */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* LINKS desktop */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "3rem",
+          }}
+          className="hidden md:flex"
+        >
           <NavLink href="#services">Servicios</NavLink>
           <NavLink href="#process">Proceso</NavLink>
           <NavLink href="#portfolio">Portfolio</NavLink>
 
-          {/* CTA pill */}
+          {/* Botón Contacto */}
           <Link
             href={`https://wa.me/${SITE.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="
-              px-8 py-2.5 rounded-full text-sm font-semibold text-white
-              transition-all duration-300
-              hover:-translate-y-0.5 hover:shadow-lg
-            "
             style={{
-              backgroundColor: "var(--color-primary)",
-              boxShadow: "0 4px 12px rgba(149, 68, 42, 0.2)",
+              backgroundColor: "#95442a",
+              color: "#ffffff",
+              padding: "0.625rem 2rem",
+              borderRadius: "9999px",
+              fontSize: "0.875rem",
+              fontWeight: 600,
+              textDecoration: "none",
+              boxShadow: "0 2px 8px rgba(149, 68, 42, 0.10)",
+              transition: "background-color 0.2s ease",
             }}
+            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#b45b3f")}
+            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#95442a")}
           >
             Contacto
           </Link>
         </div>
 
-        {/* Hamburger — mobile */}
+        {/* Hamburger mobile */}
         <button
-          className="md:hidden p-2 rounded-lg transition-colors hover:bg-black/5"
+          className="md:hidden"
           aria-label="Abrir menú"
-          style={{ color: "var(--color-on-surface-variant)" }}
+          style={{ color: "#55433d", background: "none", border: "none", cursor: "pointer", padding: "0.5rem" }}
         >
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
-            <line x1="3" y1="6" x2="19" y2="6" />
-            <line x1="3" y1="11" x2="19" y2="11" />
-            <line x1="3" y1="16" x2="19" y2="16" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
+            <line x1="3" y1="7" x2="21" y2="7" />
+            <line x1="3" y1="12" x2="21" y2="12" />
+            <line x1="3" y1="17" x2="21" y2="17" />
           </svg>
         </button>
-
       </nav>
     </header>
   )
 }
 
-/* ─── Subcomponente: NavLink ──────────────────────────────── */
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
     <Link
       href={href}
-      className="text-sm font-medium transition-colors hover:text-[#95442a]"
-      style={{ color: "var(--color-on-surface-variant)" }}
+      style={{
+        color: "#55433d",
+        fontSize: "0.875rem",
+        fontWeight: 500,
+        textDecoration: "none",
+      }}
     >
       {children}
     </Link>

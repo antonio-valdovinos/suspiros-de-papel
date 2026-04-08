@@ -25,7 +25,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${notoSerif.variable} ${plusJakarta.variable}`}>
-      <body>
+      <body className="bg-background">
         <Navbar />
         <main className="pt-20">{children}</main>
         <Footer />

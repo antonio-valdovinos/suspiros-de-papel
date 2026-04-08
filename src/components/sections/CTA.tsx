@@ -1,14 +1,21 @@
+"use client"
+
+import { useScrollReveal } from "@/hooks/useScrollReveal"
 import { SITE } from "@/constants/site"
 
 export default function CTA() {
+  const ref = useScrollReveal()
   const waLink = `https://wa.me/${SITE.whatsapp}`
 
   return (
     <>
-      {/* ─── Sección CTA ─────────────────────────────────── */}
-      <section id="contact" className="scroll-reveal py-40 px-8">
+      <section
+        ref={ref}
+        id="contact"
+        className="scroll-reveal py-40 px-8"
+      >
         <div
-          className="max-w-6xl mx-auto rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden shadow-2xl"
+          className="max-w-6xl mx-auto rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden"
           style={{
             backgroundColor: "var(--color-primary)",
             boxShadow: "0 25px 50px rgba(149, 68, 42, 0.3)",
@@ -30,8 +37,8 @@ export default function CTA() {
             </h2>
 
             <p className="text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed">
-              Estamos listos para escucharte y dar vida a tus ideas con la mayor
-              dedicación. Cada consulta es el inicio de algo único.
+              Estamos listos para escucharte y dar vida a tus ideas con la mayor dedicación.
+              Cada consulta es el inicio de algo único.
             </p>
 
             <a
@@ -42,47 +49,29 @@ export default function CTA() {
               style={{ color: "var(--color-primary)" }}
             >
               Hablemos por WhatsApp
-              <span className="text-2xl">💬</span>
+              <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.253-.041.397.303.145.346.496 1.213.539 1.3.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.177.211-.077.385.101.173.447.737.959 1.193.658.587 1.215.77 1.388.857.173.087.275.072.376-.043s.433-.506.549-.68c.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.045.072.045.419-.1.824z" />
+              </svg>
             </a>
           </div>
         </div>
       </section>
 
-      {/* ─── WhatsApp FAB flotante ────────────────────────── */}
+      {/* ─── WhatsApp FAB ─────────────────────────────────── */}
       <a
         href={waLink}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"
-        className="
-          fixed bottom-10 right-10 z-50
-          bg-[#25D366] text-white
-          p-5 rounded-full
-          shadow-2xl
-          flex items-center gap-2 overflow-hidden
-          max-w-[64px] hover:max-w-[200px]
-          transition-all duration-500
-          hover:scale-105 active:scale-95
-          group
-        "
+        className="fixed bottom-10 right-10 z-50 bg-[#25D366] text-white p-5 rounded-full shadow-2xl flex items-center gap-2 overflow-hidden max-w-[64px] hover:max-w-[200px] transition-all duration-500 hover:scale-105 active:scale-95 group"
       >
-        <WhatsAppIcon />
-        <span className="font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-sm">
+        <svg className="w-7 h-7 fill-current shrink-0" viewBox="0 0 24 24" aria-hidden>
+          <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.253-.041.397.303.145.346.496 1.213.539 1.3.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.177.211-.077.385.101.173.447.737.959 1.193.658.587 1.215.77 1.388.857.173.087.275.072.376-.043s.433-.506.549-.68c.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.045.072.045.419-.1.824z" />
+        </svg>
+        <span className="font-semibold whitespace-nowrap text-sm opacity-0 group-hover:opacity-100 transition-opacity">
           ¿Conversamos?
         </span>
       </a>
     </>
-  )
-}
-
-function WhatsAppIcon() {
-  return (
-    <svg
-      className="w-8 h-8 fill-current shrink-0"
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-    >
-      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.253-.041.397.303.145.346.496 1.213.539 1.3.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.177.211-.077.385.101.173.447.737.959 1.193.658.587 1.215.77 1.388.857.173.087.275.072.376-.043s.433-.506.549-.68c.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.045.072.045.419-.1.824z" />
-    </svg>
   )
 }
