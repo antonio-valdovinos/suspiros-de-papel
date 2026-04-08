@@ -1,19 +1,20 @@
 import HeroContent from "./HeroContent"
 import HeroImage from "./HeroImage"
-import HeroBackground from "./HeroBackground"
-import Container from "@/components/ui/Container"
 
 export default function Hero() {
   return (
-    <section className="line-art-bg relative min-h-[90vh] flex items-center overflow-hidden py-20">
-      <HeroBackground />
+    <section className="relative min-h-[90vh] flex items-center px-8 py-20 overflow-hidden line-art-bg">
 
-      <Container>
-        <div className="w-full grid lg:grid-cols-12 gap-8 items-center relative z-10">
-          <HeroContent />
-          <HeroImage />
-        </div>
-      </Container>
+      {/* BLOBS */}
+      <div className="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-primary opacity-10 blur-3xl" />
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] rounded-full bg-tertiary opacity-10 blur-3xl" />
+
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-4 items-center">
+
+        <HeroContent />
+        <HeroImage />
+
+      </div>
 
     </section>
   )

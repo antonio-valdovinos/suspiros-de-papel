@@ -1,68 +1,78 @@
 "use client"
 
-import { useState, useEffect } from "react"
 import Link from "next/link"
-import { SITE } from "@/constants/site"
+import { useEffect, useState } from "react"
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20)
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20)
+    }
+
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-surface/80 backdrop-blur-xl shadow-sm"
-          : "bg-transparent"
-      }`}
+      className={`
+        fixed top-0 w-full z-50 transition-all duration-500
+        ${scrolled 
+          ? "bg-white/70 backdrop-blur-xl border-b border-outline-variant/10" 
+          : "bg-transparent"}
+      `}
     >
-      <nav className="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
-        
-        {/* Logo */}
-        <Link href="/" className="text-2xl font-headline font-bold text-primary tracking-tight">
-          {SITE.name.split(" De ")[0]}{" "}
-          <span className="italic font-normal">De Papel</span>
-        </Link>
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
 
-        {/* Links desktop */}
-        <div className="hidden md:flex items-center gap-10">
-          <Link href="#services" className="text-sm hover:text-primary">
+        {/* LOGO */}
+        <div className="text-2xl md:text-3xl font-serif font-bold text-primary tracking-tight">
+          Suspiros <span className="italic font-normal">De Papel</span>
+        </div>
+
+        {/* LINKS */}
+        <div className="hidden md:flex items-center gap-12">
+
+          <Link
+            href="#services"
+            className="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors"
+          >
             Servicios
           </Link>
 
-          <Link href="#how-it-works" className="text-sm hover:text-primary">
+          <Link
+            href="#process"
+            className="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors"
+          >
             Proceso
           </Link>
 
-          <Link href="#gallery" className="text-sm hover:text-primary">
-            Portfolio
+          <Link
+            href="#portfolio"
+            className="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors"
+          >
+            Portafolio
           </Link>
 
-          {/* ✅ AQUÍ ESTABA EL ERROR */}
-          <a
-            href={`https://wa.me/${SITE.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-primary text-white px-8 py-2.5 rounded-full text-sm font-semibold"
+          {/* BOTÓN MEJORADO */}
+          <Link
+            href="#contact"
+            className="
+              bg-primary text-white
+              px-8 py-2.5
+              rounded-full text-sm font-semibold
+              shadow-md shadow-primary/20
+              hover:bg-primary-light
+              hover:scale-105
+              transition-all duration-300
+            "
           >
             Contacto
-          </a>
+          </Link>
+
         </div>
 
-        {/* Mobile */}
-        <a
-          href={`https://wa.me/${SITE.whatsapp}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="md:hidden bg-primary text-white px-5 py-2 rounded-full text-sm"
-        >
-          WhatsApp
-        </a>
       </nav>
     </header>
   )

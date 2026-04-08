@@ -1,69 +1,75 @@
 import Link from "next/link"
-import { SITE } from "@/constants/site"
 
 export default function Footer() {
   return (
-    <footer className="bg-surface-container w-full border-t border-outline-variant/20">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-12 px-8 py-20 max-w-7xl mx-auto">
+    <footer className="mt-24 bg-surface-container border-t border-outline-variant/30">
+
+      <div className="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-3 gap-10 text-sm">
+
         {/* Brand */}
-        <div className="space-y-6 md:col-span-1">
-          <div className="font-headline text-2xl text-primary font-bold">
-            {SITE.name.split(" De ")[0]}{" "}
-            <span className="italic font-normal">De Papel</span>
-          </div>
-          <p className="text-on-surface-variant text-sm leading-relaxed font-light max-w-xs">
-            {SITE.description}
+        <div>
+          <h3 className="text-primary font-semibold text-lg mb-3">
+            Suspiros <span className="italic font-light">De Papel</span>
+          </h3>
+          <p className="text-on-surface-variant leading-relaxed">
+            Sublimación, grabado láser y papelería creativa diseñada para momentos que merecen ser eternos.
           </p>
         </div>
 
-        {/* Navegación */}
-        <div className="space-y-6">
-          <h4 className="font-bold text-xs uppercase tracking-widest text-primary">
-            Navegación
-          </h4>
-          <ul className="space-y-3 text-on-surface-variant text-sm font-light">
-            <li><Link href="#services" className="hover:text-primary transition-colors">Servicios</Link></li>
-            <li><Link href="#how-it-works" className="hover:text-primary transition-colors">Proceso</Link></li>
-            <li><Link href="#gallery" className="hover:text-primary transition-colors">Portfolio</Link></li>
+        {/* Navigation */}
+        <div>
+          <h4 className="font-semibold mb-4">Navegación</h4>
+          <ul className="space-y-2 text-on-surface-variant">
+            <li>
+              <Link href="#services" className="hover:text-primary transition">
+                Servicios
+              </Link>
+            </li>
+            <li>
+              <Link href="#process" className="hover:text-primary transition">
+                Proceso
+              </Link>
+            </li>
+            <li>
+              <Link href="#portfolio" className="hover:text-primary transition">
+                Portafolio
+              </Link>
+            </li>
           </ul>
         </div>
 
-        {/* Contacto */}
-        <div className="space-y-6">
-          <h4 className="font-bold text-xs uppercase tracking-widest text-primary">
-            Contacto
-          </h4>
-          <ul className="space-y-4 text-on-surface-variant text-sm font-light">
+        {/* Contact */}
+        <div>
+          <h4 className="font-semibold mb-4">Contacto</h4>
+          <ul className="space-y-2 text-on-surface-variant">
             <li>Envíos a todo el territorio nacional</li>
             <li>
-              <a href={`mailto:${SITE.email}`} className="hover:text-primary transition-colors">
-                {SITE.email}
+              <a
+                href="mailto:suspirosdepapel2@gmail.com"
+                className="hover:text-primary transition"
+              >
+                suspirosdepapel2@gmail.com
               </a>
             </li>
             <li>
-  <a
-    href={`https://wa.me/${SITE.whatsapp}`}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="hover:text-primary transition-colors"
-  >
-    WhatsApp
-  </a>
-</li>
+              <a
+                href="https://wa.me/521XXXXXXXXXX"
+                target="_blank"
+                className="hover:text-primary transition"
+              >
+                WhatsApp
+              </a>
+            </li>
           </ul>
         </div>
+
       </div>
 
-      {/* Bottom bar */}
-      <div className="max-w-7xl mx-auto px-8 py-6 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
-        <p className="text-outline text-xs tracking-widest uppercase">
-          © 2024 {SITE.name}. Handcrafted Excellence.
-        </p>
-        <div className="flex gap-8 text-xs font-bold tracking-widest uppercase text-outline">
-          <Link href="#" className="hover:text-primary transition-colors">Términos</Link>
-          <Link href="#" className="hover:text-primary transition-colors">Privacidad</Link>
-        </div>
+      {/* Bottom */}
+      <div className="text-center text-xs text-on-surface-variant pb-6">
+        © 2024 Suspiros De Papel. Handcrafted with care.
       </div>
+
     </footer>
   )
 }
