@@ -20,9 +20,9 @@ export default function HeroImage() {
 
       {/* Círculo decorativo — "100% Hecho a Mano" */}
       <div
-        className="absolute -bottom-10 -left-10 w-56 h-56 rounded-full bg-tertiary p-8 text-white z-20 flex flex-col justify-center items-center text-center shadow-2xl -rotate-6"
+        className="absolute w-36 h-36 -bottom-6 -left-6 lg:w-56 lg:h-56 lg:-bottom-10 lg:-left-10 rounded-full bg-tertiary p-6 lg:p-8 text-white z-20 flex flex-col justify-center items-center text-center shadow-2xl -rotate-6"
       >
-        <span className="text-4xl mb-3 opacity-50">✦</span>
+        <span className="text-2xl lg:text-4xl mb-2 lg:mb-3 opacity-50">✦</span>
         <p className="font-bold text-xs uppercase tracking-widest">
           100% Hecho a Mano
         </p>
@@ -30,7 +30,7 @@ export default function HeroImage() {
 
       {/* Fondo orgánico detrás de la imagen */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-secondary-fixed organic-blob opacity-30 -z-10 rotate-45"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full lg:w-[120%] lg:h-[120%] bg-secondary-fixed organic-blob opacity-30 -z-10 rotate-45"
       />
 
     </div>

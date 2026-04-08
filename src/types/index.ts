@@ -1,11 +1,3 @@
-export type Service = {
-  id: string
-  title: string
-  description: string
-  tags: string[]
-  icon: string
-}
-
 export type GalleryItem = {
   id: string
   src: string

@@ -1,6 +1,7 @@
 "use client"
 
 import { useScrollReveal } from "@/hooks/useScrollReveal"
+import Container from "@/components/ui/Container"
 
 const STEPS = [
   {
@@ -35,16 +36,16 @@ export default function HowItWorks() {
   return (
     <section
       ref={ref}
-      id="process"
-      className="scroll-reveal py-40 relative bg-surface-container-low"
+      id="how-it-works"
+      className="scroll-reveal py-20 lg:py-40 relative bg-surface-container-low"
     >
-      <div className="max-w-7xl mx-auto px-8">
+      <Container>
 
-        <div className="flex flex-col md:flex-row gap-12 items-end mb-24">
-          <h2 className="text-5xl md:text-7xl font-bold flex-1">
-            Del boceto{" "}
+        <div className="flex flex-col md:flex-row gap-12 items-end mb-12 lg:mb-24">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold flex-1">
+            Tu piensalo{" "}
             <span className="block italic font-normal text-primary">
-              a tus manos
+              nosotros lo creamos
             </span>
           </h2>
           <p className="max-w-sm mb-4 font-light text-on-surface-variant">
@@ -52,15 +53,15 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-12 relative">
+        <div className="grid md:grid-cols-4 gap-8 lg:gap-12 relative">
           {STEPS.map((step) => (
             <div key={step.number} className={`relative group ${step.offset ? "md:mt-20" : ""}`}>
               <div
-                className="text-9xl font-serif italic absolute -top-16 -left-4 select-none pointer-events-none text-primary/5 group-hover:text-primary/10 transition-colors"
+                className="text-7xl lg:text-9xl font-serif italic absolute -top-16 -left-4 select-none pointer-events-none text-primary/5 group-hover:text-primary/10 transition-colors"
               >
                 {step.number}
               </div>
-              <div className="relative z-10 pt-10">
+              <div className="relative z-10 pt-8 lg:pt-10">
                 <h4 className="text-2xl font-bold mb-4">{step.title}</h4>
                 <p className="text-sm leading-relaxed font-light text-on-surface-variant">
                   {step.description}
@@ -78,7 +79,7 @@ export default function HowItWorks() {
           </svg>
         </div>
 
-      </div>
+      </Container>
     </section>
   )
 }

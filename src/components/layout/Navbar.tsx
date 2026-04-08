@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { SITE } from "@/constants/site"
+import Container from "@/components/ui/Container"
 
 const IconMenu = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
@@ -34,50 +35,52 @@ export default function Navbar() {
         scrolled ? "bg-surface/80" : "bg-surface/60",
       ].join(" ")}
     >
-      <nav className="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
-        {/* LOGO */}
-        <Link
-          href="/"
-          className="text-2xl font-headline font-bold text-primary tracking-tight no-underline"
-        >
-          Suspiros{" "}
-          <span className="italic font-normal">De Papel</span>
-        </Link>
-
-        {/* LINKS desktop */}
-        <div className="hidden md:flex items-center gap-12">
-          <NavLink href="#services">Servicios</NavLink>
-          <NavLink href="#process">Proceso</NavLink>
-          <NavLink href="#portfolio">Portfolio</NavLink>
-
+      <Container>
+        <nav className="flex justify-between items-center py-4">
+          {/* LOGO */}
           <Link
-            href={waLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-primary hover:bg-primary-container text-white px-8 py-2.5 rounded-full text-sm font-semibold no-underline shadow-sm transition-colors duration-200"
+            href="/"
+            className="text-2xl font-headline font-bold text-primary tracking-tight no-underline"
           >
-            Contacto
+            Suspiros{" "}
+            <span className="italic font-normal">De Papel</span>
           </Link>
-        </div>
 
-        {/* Hamburger mobile */}
-        <button
-          className="md:hidden text-on-surface-variant bg-transparent border-none cursor-pointer p-2"
-          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
-          onClick={() => setIsOpen((prev) => !prev)}
-        >
-          {isOpen ? <IconX /> : <IconMenu />}
-        </button>
-      </nav>
+          {/* LINKS desktop */}
+          <div className="hidden md:flex items-center gap-12">
+            <NavLink href="#services">Servicios</NavLink>
+            <NavLink href="#how-it-works">Proceso</NavLink>
+            <NavLink href="#portfolio">Portfolio</NavLink>
 
-      {/* Panel mobile */}
+            <Link
+              href={waLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-primary hover:bg-primary-container text-white px-8 py-2.5 rounded-full text-sm font-semibold no-underline shadow-sm transition-colors duration-200"
+            >
+              Contacto
+            </Link>
+          </div>
+
+          {/* Hamburger mobile */}
+          <button
+            className="md:hidden text-on-surface-variant bg-transparent border-none cursor-pointer p-2"
+            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+            onClick={() => setIsOpen((prev) => !prev)}
+          >
+            {isOpen ? <IconX /> : <IconMenu />}
+          </button>
+        </nav>
+      </Container>
+
+      {/* Panel mobile — fuera del Container para ocupar full width */}
       {isOpen && (
-        <div className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/10 px-8 py-6 flex flex-col gap-6">
-          <a href="#services"    onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors">Servicios</a>
-          <a href="#process"     onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors">Proceso</a>
-          <a href="#portfolio"   onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors">Portfolio</a>
+        <div className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/10 px-4 py-6 flex flex-col gap-4">
+          <a href="#services"    onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Servicios</a>
+          <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Proceso</a>
+          <a href="#portfolio"   onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Portfolio</a>
           <a href={waLink} target="_blank" rel="noopener noreferrer"
-             className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center">
+             className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center mt-2">
             Contacto
           </a>
         </div>
