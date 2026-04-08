@@ -1,61 +1,104 @@
 import Link from "next/link"
+import { SITE } from "@/constants/site"
 
 export default function Footer() {
+  const waLink = `https://wa.me/${SITE.whatsapp}`
+
   return (
-    <footer className="mt-24 bg-surface-container border-t border-outline-variant/30">
+    <footer
+      className="border-t"
+      style={{
+        backgroundColor: "var(--color-surface-container-low)",
+        borderColor: "rgba(219, 193, 186, 0.2)",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-8 py-24 grid grid-cols-1 md:grid-cols-4 gap-16 items-start">
 
-      <div className="max-w-7xl mx-auto px-8 py-16 grid md:grid-cols-3 gap-10 text-sm">
+        {/* Brand — ocupa 2 columnas */}
+        <div className="space-y-8 md:col-span-2">
+          <div
+            className="font-serif text-3xl font-bold"
+            style={{ color: "var(--color-primary)" }}
+          >
+            Suspiros <span className="italic font-normal">De Papel</span>
+          </div>
 
-        {/* Brand */}
-        <div>
-          <h3 className="text-primary font-semibold text-lg mb-3">
-            Suspiros <span className="italic font-light">De Papel</span>
-          </h3>
-          <p className="text-on-surface-variant leading-relaxed">
-            Sublimación, grabado láser y papelería creativa diseñada para momentos que merecen ser eternos.
+          <p
+            className="text-base max-w-sm leading-relaxed font-light"
+            style={{ color: "var(--color-on-surface-variant)" }}
+          >
+            {SITE.description}
           </p>
+
+          {/* Redes sociales — placeholders */}
+          <div className="flex gap-6">
+            <SocialLink href="#" label="Instagram" icon="📷" />
+            <SocialLink href="#" label="Facebook" icon="🔗" />
+          </div>
         </div>
 
-        {/* Navigation */}
-        <div>
-          <h4 className="font-semibold mb-4">Navegación</h4>
-          <ul className="space-y-2 text-on-surface-variant">
+        {/* Navegación */}
+        <div className="space-y-8">
+          <h4
+            className="font-bold text-sm uppercase tracking-widest"
+            style={{ color: "var(--color-primary)" }}
+          >
+            Navegación
+          </h4>
+          <ul
+            className="space-y-4 font-light"
+            style={{ color: "var(--color-on-surface-variant)" }}
+          >
             <li>
-              <Link href="#services" className="hover:text-primary transition">
+              <Link href="#services" className="hover:text-primary transition-colors">
                 Servicios
               </Link>
             </li>
             <li>
-              <Link href="#process" className="hover:text-primary transition">
+              <Link href="#process" className="hover:text-primary transition-colors">
                 Proceso
               </Link>
             </li>
             <li>
-              <Link href="#portfolio" className="hover:text-primary transition">
-                Portafolio
+              <Link href="#contact" className="hover:text-primary transition-colors">
+                Contacto
               </Link>
             </li>
           </ul>
         </div>
 
-        {/* Contact */}
-        <div>
-          <h4 className="font-semibold mb-4">Contacto</h4>
-          <ul className="space-y-2 text-on-surface-variant">
-            <li>Envíos a todo el territorio nacional</li>
-            <li>
+        {/* Contacto */}
+        <div className="space-y-8">
+          <h4
+            className="font-bold text-sm uppercase tracking-widest"
+            style={{ color: "var(--color-primary)" }}
+          >
+            Contacto
+          </h4>
+          <ul
+            className="space-y-6 font-light"
+            style={{ color: "var(--color-on-surface-variant)" }}
+          >
+            <li className="flex items-start gap-3">
+              <span>📍</span>
+              <span>Envíos seguros a todo el territorio nacional</span>
+            </li>
+            <li className="flex items-center gap-3">
+              <span>✉️</span>
               <a
-                href="mailto:suspirosdepapel2@gmail.com"
-                className="hover:text-primary transition"
+                href={`mailto:${SITE.email}`}
+                className="hover:text-primary transition-colors"
               >
-                suspirosdepapel2@gmail.com
+                {SITE.email}
               </a>
             </li>
-            <li>
+            <li className="flex items-center gap-3">
+              <span>💬</span>
               <a
-                href="https://wa.me/521XXXXXXXXXX"
+                href={waLink}
                 target="_blank"
-                className="hover:text-primary transition"
+                rel="noopener noreferrer"
+                className="hover:text-primary transition-colors"
               >
                 WhatsApp
               </a>
@@ -65,11 +108,64 @@ export default function Footer() {
 
       </div>
 
-      {/* Bottom */}
-      <div className="text-center text-xs text-on-surface-variant pb-6">
-        © 2024 Suspiros De Papel. Handcrafted with care.
+      {/* Bottom bar */}
+      <div
+        className="max-w-7xl mx-auto px-8 py-8 border-t flex flex-col md:flex-row justify-between items-center gap-4"
+        style={{ borderColor: "rgba(219, 193, 186, 0.15)" }}
+      >
+        <p
+          className="text-xs tracking-widest uppercase"
+          style={{ color: "var(--color-outline)" }}
+        >
+          © 2024 {SITE.name}. Handcrafted Excellence.
+        </p>
+        <div
+          className="flex gap-8 text-[10px] font-bold tracking-widest uppercase"
+          style={{ color: "var(--color-outline)" }}
+        >
+          <Link href="#" className="hover:text-primary transition-colors">
+            Términos
+          </Link>
+          <Link href="#" className="hover:text-primary transition-colors">
+            Privacidad
+          </Link>
+        </div>
       </div>
-
     </footer>
+  )
+}
+
+/* ─── Subcomponente: SocialLink ──────────────────────────── */
+function SocialLink({
+  href,
+  label,
+  icon,
+}: {
+  href: string
+  label: string
+  icon: string
+}) {
+  return (
+    <a
+      href={href}
+      aria-label={label}
+      className="w-12 h-12 rounded-full border flex items-center justify-center transition-all hover:text-white"
+      style={{
+        borderColor: "rgba(149, 68, 42, 0.3)",
+        color: "var(--color-primary)",
+      }}
+      onMouseEnter={(e) => {
+        const el = e.currentTarget as HTMLAnchorElement
+        el.style.backgroundColor = "var(--color-primary)"
+        el.style.color = "#fff"
+      }}
+      onMouseLeave={(e) => {
+        const el = e.currentTarget as HTMLAnchorElement
+        el.style.backgroundColor = ""
+        el.style.color = "var(--color-primary)"
+      }}
+    >
+      <span>{icon}</span>
+    </a>
   )
 }

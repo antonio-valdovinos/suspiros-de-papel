@@ -1,27 +1,69 @@
 @import "tailwindcss";
 
-/* 🎨 TOKENS */
+/* ─── DESIGN TOKENS ──────────────────────────────────────── */
 @theme {
-  --color-primary: #95442a;
-  --color-secondary: #7a573c;
-  --color-tertiary: #5b5e41;
+  /* Fuentes */
+  --font-family-headline: var(--font-noto-serif), serif;
+  --font-family-body: var(--font-plus-jakarta), sans-serif;
 
-  --color-background: #fdf9f5;
-  --color-surface: #fdf9f5;
-  --color-surface-container: #f1ede9;
+  /* Colores principales */
+  --color-primary:           #95442a;
+  --color-secondary:         #7a573c;
+  --color-tertiary:          #5b5e41;
 
-  --color-on-surface: #1c1c19;
+  /* Contenedores de color */
+  --color-primary-container:    #b45b3f;
+  --color-secondary-container:  #feceab;
+  --color-tertiary-container:   #747758;
+
+  /* Fixed / Dim */
+  --color-primary-fixed:        #ffdbd0;
+  --color-primary-fixed-dim:    #ffb59f;
+  --color-secondary-fixed:      #ffdcc4;
+  --color-secondary-fixed-dim:  #ecbd9c;
+  --color-tertiary-fixed:       #e3e5c0;
+  --color-tertiary-fixed-dim:   #c7c9a5;
+
+  /* Sobre colores */
+  --color-on-primary:           #ffffff;
+  --color-on-secondary:         #ffffff;
+  --color-on-tertiary:          #ffffff;
+  --color-on-primary-container: #fffbff;
+  --color-on-secondary-container: #79563b;
+  --color-on-tertiary-container:  #feffdc;
+
+  /* Superficies */
+  --color-background:               #fdf9f5;
+  --color-surface:                  #fdf9f5;
+  --color-surface-bright:           #fdf9f5;
+  --color-surface-dim:              #ddd9d6;
+  --color-surface-variant:          #e6e2de;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low:    #f7f3ef;
+  --color-surface-container:        #f1ede9;
+  --color-surface-container-high:   #ebe7e4;
+  --color-surface-container-highest:#e6e2de;
+
+  /* Sobre superficies */
+  --color-on-surface:         #1c1c19;
   --color-on-surface-variant: #55433d;
+  --color-inverse-surface:    #31302e;
+  --color-inverse-on-surface: #f4f0ec;
+  --color-inverse-primary:    #ffb59f;
 
-  --color-outline: #88726c;
+  /* Bordes */
+  --color-outline:         #88726c;
   --color-outline-variant: #dbc1ba;
 
-  --font-family-headline: var(--font-noto-serif);
-  --font-family-body: var(--font-plus-jakarta);
+  /* Error */
+  --color-error:             #ba1a1a;
+  --color-on-error:          #ffffff;
+  --color-error-container:   #ffdad6;
+  --color-on-error-container:#93000a;
 }
 
-/* RESET */
-* {
+/* ─── RESET ──────────────────────────────────────────────── */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -34,20 +76,44 @@ html {
 body {
   background: var(--color-background);
   color: var(--color-on-surface);
-  font-family: var(--font-plus-jakarta);
+  font-family: var(--font-family-body);
+  overflow-x: hidden;
 }
 
-/* TITULOS */
-h1, h2, h3 {
-  font-family: var(--font-noto-serif);
+/* ─── TIPOGRAFÍA ─────────────────────────────────────────── */
+h1, h2, h3, h4 {
+  font-family: var(--font-family-headline);
 }
 
-/* 🎨 SOLO HERO */
+/* ─── SELECCIÓN ──────────────────────────────────────────── */
+::selection {
+  background: rgba(149, 68, 42, 0.2);
+}
+
+/* ─── UTILIDADES GLOBALES ────────────────────────────────── */
+
+/* Patrón de líneas sutiles — solo en Hero */
 .line-art-bg {
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 50 10 50 50 T 90 90' stroke='%2395442a' stroke-width='0.1' fill='transparent'/%3E%3C/svg%3E");
 }
 
-/* SELECTION */
-::selection {
-  background: rgba(149, 68, 42, 0.2);
+/* Formas orgánicas reutilizables */
+.organic-blob {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+.organic-blob-alt {
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+}
+
+/* Scroll reveal */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

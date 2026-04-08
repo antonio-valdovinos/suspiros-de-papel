@@ -33,7 +33,7 @@ export default function Navbar() {
 
         {/* LINKS */}
         <div className="hidden md:flex items-center gap-12">
-
+n
           <Link
             href="#services"
             className="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors"

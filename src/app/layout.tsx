@@ -1,20 +1,34 @@
 import "./globals.css"
+import { Noto_Serif, Plus_Jakarta_Sans } from "next/font/google"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 
+const notoSerif = Noto_Serif({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-noto-serif",
+})
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-plus-jakarta",
+})
+
+export const metadata = {
+  title: "Suspiros De Papel | Personalización con Alma",
+  description:
+    "Sublimación, grabado láser y papelería creativa diseñada para momentos que merecen ser eternos.",
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="es">
+    <html lang="es" className={`${notoSerif.variable} ${plusJakarta.variable}`}>
       <body>
-
         <Navbar />
-
-        <main className="pt-24">
-          {children}
-        </main>
-
+        <main className="pt-20">{children}</main>
         <Footer />
-
       </body>
     </html>
   )

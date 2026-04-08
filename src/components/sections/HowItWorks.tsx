@@ -1,0 +1,101 @@
+const STEPS = [
+  {
+    number: "01",
+    title: "Idea & Concepto",
+    description: "Cuéntanos tu proyecto. Escuchamos cada detalle para entender tu visión.",
+    offset: false,
+  },
+  {
+    number: "02",
+    title: "Propuesta Digital",
+    description: "Enviamos bocetos visuales para que veas tu producto antes de producirlo.",
+    offset: true,
+  },
+  {
+    number: "03",
+    title: "Mano de Obra",
+    description: "Fabricación cuidadosa mezclando tecnología láser y acabado manual.",
+    offset: false,
+  },
+  {
+    number: "04",
+    title: "Envío Seguro",
+    description: "Recibe tu pieza lista para regalar o lucir, empacada con cariño.",
+    offset: true,
+  },
+]
+
+export default function HowItWorks() {
+  return (
+    <section
+      id="process"
+      className="scroll-reveal py-40 relative"
+      style={{ backgroundColor: "var(--color-surface-container-low)" }}
+    >
+      <div className="max-w-7xl mx-auto px-8">
+
+        {/* Encabezado */}
+        <div className="flex flex-col md:flex-row gap-12 items-end mb-24">
+          <h2 className="text-5xl md:text-7xl font-bold flex-1">
+            Del boceto{" "}
+            <span
+              className="block italic font-normal"
+              style={{ color: "var(--color-primary)" }}
+            >
+              a tus manos
+            </span>
+          </h2>
+          <p
+            className="max-w-sm mb-4 font-light"
+            style={{ color: "var(--color-on-surface-variant)" }}
+          >
+            Un proceso fluido y artesanal pensado en la perfección de cada entrega.
+          </p>
+        </div>
+
+        {/* Steps */}
+        <div className="grid md:grid-cols-4 gap-12 relative">
+          {STEPS.map((step) => (
+            <div
+              key={step.number}
+              className={`relative group ${step.offset ? "md:mt-20" : ""}`}
+            >
+              {/* Número decorativo de fondo */}
+              <div
+                className="text-9xl font-serif italic absolute -top-16 -left-4 select-none transition-colors pointer-events-none"
+                style={{ color: "rgba(149, 68, 42, 0.05)" }}
+              >
+                {step.number}
+              </div>
+
+              <div className="relative z-10 pt-10">
+                <h4 className="text-2xl font-bold mb-4">{step.title}</h4>
+                <p
+                  className="text-sm leading-relaxed font-light"
+                  style={{ color: "var(--color-on-surface-variant)" }}
+                >
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
+
+          {/* Línea de conexión decorativa */}
+          <svg
+            className="hidden md:block absolute top-1/2 left-0 w-full h-32 -z-10 opacity-10 pointer-events-none"
+            fill="none"
+            viewBox="0 0 1000 100"
+          >
+            <path
+              d="M0 50 Q 250 100 500 50 T 1000 50"
+              stroke="#95442a"
+              strokeDasharray="10 10"
+              strokeWidth="2"
+            />
+          </svg>
+        </div>
+
+      </div>
+    </section>
+  )
+}
