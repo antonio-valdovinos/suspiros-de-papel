@@ -19,10 +19,10 @@ export default function Button({
 }: ButtonProps) {
 
   const primaryClass =
-    "inline-flex items-center gap-3 bg-primary text-white rounded-full px-10 py-3.5 font-semibold shadow-xl no-underline border-none cursor-pointer"
+    "px-10 py-5 bg-primary text-white rounded-full text-lg font-semibold hover:-translate-y-0.5 transition-all shadow-xl shadow-primary/20 inline-flex items-center gap-3 no-underline border-none cursor-pointer"
 
   const ghostClass =
-    "inline-flex items-center gap-2 text-on-surface font-semibold no-underline border-none border-b-2 border-primary/20 pb-1 bg-transparent cursor-pointer"
+    "text-on-surface font-semibold border-b-2 border-primary/20 hover:border-primary transition-colors py-1 no-underline bg-transparent border-t-0 border-l-0 border-r-0 cursor-pointer"
 
   const className = variant === "primary" ? primaryClass : ghostClass
 

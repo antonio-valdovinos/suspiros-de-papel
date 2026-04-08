@@ -7,7 +7,7 @@ import { SITE } from "@/constants/site"
  */
 export default function HeroContent() {
   return (
-    <div className="lg:col-span-7 z-20 space-y-10 lg:pr-12">
+    <div className="lg:col-span-7 z-20 space-y-8 lg:pr-12">
 
       {/* Badge */}
       <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/40 backdrop-blur-sm border border-outline-variant/20 text-secondary text-xs font-bold tracking-widest uppercase">
@@ -16,9 +16,9 @@ export default function HeroContent() {
       </div>
 
       {/* Headline — text-8xl en lg igual que el boceto */}
-      <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-on-surface leading-[1.1] tracking-tight">
+      <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold text-on-surface leading-[1.1] tracking-tight italic">
         Detalles personalizados que cuentan
-        <span className="block italic font-normal text-primary mt-2">
+        <span className="block font-display font-normal text-primary mt-2">
           tu historia
         </span>
       </h1>

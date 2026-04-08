@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Suspiros De Papel | Personalización con Alma</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#ffb59f",
+                        "on-primary-container": "#fffbff",
+                        "tertiary": "#5b5e41",
+                        "primary": "#95442a",
+                        "outline-variant": "#dbc1ba",
+                        "on-error": "#ffffff",
+                        "background": "#fdf9f5",
+                        "tertiary-container": "#747758",
+                        "surface-container-low": "#f7f3ef",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#e3e5c0",
+                        "on-tertiary-fixed-variant": "#46492d",
+                        "on-primary-fixed-variant": "#7a2f17",
+                        "surface-variant": "#e6e2de",
+                        "surface-tint": "#98462c",
+                        "surface-container": "#f1ede9",
+                        "surface-dim": "#ddd9d6",
+                        "tertiary-fixed-dim": "#c7c9a5",
+                        "on-secondary-container": "#79563b",
+                        "on-primary-fixed": "#3a0a00",
+                        "inverse-surface": "#31302e",
+                        "surface": "#fdf9f5",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#feceab",
+                        "secondary": "#7a573c",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed": "#ffdcc4",
+                        "error": "#ba1a1a",
+                        "on-background": "#1c1c19",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#ebe7e4",
+                        "inverse-primary": "#ffb59f",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#ecbd9c",
+                        "on-tertiary-fixed": "#1a1d06",
+                        "surface-container-highest": "#e6e2de",
+                        "on-primary": "#ffffff",
+                        "primary-container": "#b45b3f",
+                        "surface-bright": "#fdf9f5",
+                        "primary-fixed": "#ffdbd0",
+                        "inverse-on-surface": "#f4f0ec",
+                        "on-surface-variant": "#55433d",
+                        "on-secondary-fixed-variant": "#604026",
+                        "outline": "#88726c",
+                        "on-surface": "#1c1c19",
+                        "on-tertiary-container": "#feffdc",
+                        "on-secondary-fixed": "#2e1502"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Plus Jakarta Sans"],
+                        "label": ["Plus Jakarta Sans"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .organic-blob {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        .organic-blob-alt {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #fdf9f5;
+            color: #1c1c19;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif', serif;
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-auto-rows: 10px;
+        }
+        .masonry-item-short { grid-row-end: span 25; }
+        .masonry-item-med { grid-row-end: span 35; }
+        .masonry-item-long { grid-row-end: span 45; }
+        
+        .line-art-bg {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 50 10 50 50 T 90 90' stroke='%2395442a' stroke-width='0.1' fill='transparent'/%3E%3C/svg%3E");
+        }
+        
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="selection:bg-primary/20 line-art-bg" data-mode="connect">
+<!-- Top Navigation -->
+<header class="fixed top-0 w-full z-50 bg-surface/60 backdrop-blur-xl border-b border-outline-variant/10">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-serif font-bold text-primary tracking-tight" style="">Suspiros <span class="italic font-normal" style="">De Papel</span></div>
+<div class="hidden md:flex items-center gap-12">
+<a class="text-on-surface-variant text-sm font-medium hover:text-primary transition-colors" href="#services" style="">Servicios</a>
+<a class="text-on-surface-variant text-sm font-medium hover:text-primary transition-colors" href="#how-it-works" style="">Proceso</a>
+<a class="text-on-surface-variant text-sm font-medium hover:text-primary transition-colors" href="#gallery" style="">Portfolio</a>
+<a class="bg-primary text-white px-8 py-2.5 rounded-full text-sm font-semibold hover:bg-primary-container transition-all shadow-md shadow-primary/10" href="https://wa.me/#" style="">Contacto</a>
+</div>
+<button class="md:hidden text-stone-600" style="">
+<span class="material-symbols-outlined" style="">menu</span>
+</button>
+</nav>
+</header>
+<main class="pt-20">
+<!-- Hero Section: Compositional Layout -->
+<section class="relative min-h-[90vh] flex items-center overflow-visible px-8 py-20 scroll-reveal visible">
+<div class="absolute -top-40 -right-40 w-[600px] h-[600px] organic-blob bg-primary-fixed opacity-10 pointer-events-none blur-3xl"></div>
+<div class="absolute top-1/2 left-0 w-[400px] h-[400px] organic-blob-alt bg-tertiary-fixed opacity-15 pointer-events-none blur-3xl"></div>
+<div class="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-4 items-center relative">
+<!-- Text Content: Asymmetrical Positioning -->
+<div class="lg:col-span-7 z-20 space-y-10 lg:pr-12">
+<div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/40 backdrop-blur-sm border border-outline-variant/20 text-secondary text-xs font-bold tracking-widest uppercase" style="">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                        Artesanía Digital &amp; Creativa
+                    </div>
+<h1 class="text-5xl md:text-7xl lg:text-8xl font-headline font-bold text-on-surface leading-[1.1] tracking-tight" style="--tw-scale-y: 1; margin-top: 16px; font-family: Newsreader, serif; color: rgb(28, 28, 25);">Detalles personalizados que cuentan<span class="block font-headline italic font-normal text-primary mt-2" style="font-family: Newsreader, serif; color: rgb(156, 62, 37);">tu historia</span></h1>
+<p class="text-xl text-on-surface-variant max-w-lg leading-relaxed font-light" style=""> <span class="" style="color: rgb(86, 66, 61); font-family: Manrope, sans-serif; font-size: 24px;">Sublimación, grabado láser y papelería creativa diseñada para momentos que merecen ser eternos.</span></p>
+<div class="flex flex-wrap gap-6 items-center">
+<a class="px-10 py-5 bg-primary text-white rounded-full text-lg font-semibold hover:translate-y-[-2px] transition-all shadow-xl shadow-primary/20 flex items-center gap-3" href="https://wa.me/#" style="">
+                            Pedir por WhatsApp
+                            <span class="material-symbols-outlined text-xl" style="">arrow_right_alt</span>
+</a>
+<a class="text-on-surface font-semibold border-b-2 border-primary/20 hover:border-primary transition-colors py-1" href="#services" style="">
+                            Explorar Catálogo
+                        </a>
+</div>
+</div>
+<!-- Featured Image: Overlapping & Floating -->
+<div class="lg:col-span-5 relative mt-12 lg:mt-0">
+<div class="relative z-10 aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-700">
+<img alt="Close-up of a professional sublimation process featuring a custom ceramic mug and specialized equipment." class="w-full h-full object-cover scale-110 hover:scale-100 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZKu6nIZoUXBe0LdBJgbVjrJckVjSbOryprH-g1VxwmZViOAHWD2iHjQPwAdUqGQZHZhwS0sLos0VTLFX4parPXAVfBigdCq_d8C1ezuNrkE1RlyhkCpNNEs1L8Gpr9JfQ79uLHWpudqIguBMoY0e3BI6Zxp-TO55vfMmZPFWm1f27DT-1eRa0r2zAY4ykZtm-fqJRV5HgrP3UDVDRKjqTngwiqMmULsrpN928tgDPA9IsWupq8ZqBacwmdMkXqZiAn-aLac1ncWA" style=""/>
+</div>
+<!-- Overlapping Decorative Element -->
+<div class="absolute -bottom-10 -left-10 w-56 h-56 rounded-full bg-tertiary p-8 text-white z-20 flex flex-col justify-center items-center text-center shadow-2xl -rotate-6">
+<span class="material-symbols-outlined text-4xl mb-3 opacity-50" style="">auto_awesome</span>
+<p class="font-bold text-sm uppercase tracking-widest" style="">100% Hecho a Mano</p>
+</div>
+<!-- Background Organic Shape -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] organic-blob bg-secondary-fixed opacity-30 -z-10 rotate-45"></div>
+</div>
+</div>
+</section>
+<!-- Services: Visual Grid with Overlays -->
+<section class="py-40 px-8 relative overflow-hidden scroll-reveal visible" id="services">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary-fixed/20 blur-3xl organic-blob"></div>
+<div class="max-w-7xl mx-auto text-center mb-24 relative">
+<h2 class="text-5xl md:text-7xl font-bold mb-6" style="">¿Tienes un proyecto <br/><span class="italic font-normal font-headline">especial?</span></h2>
+<div class="w-24 h-1 bg-primary mx-auto rounded-full opacity-30 mb-8"></div>
+<p class="text-on-surface-variant text-xl font-light max-w-2xl mx-auto" style="">Soluciones creativas donde la técnica y la inspiración se encuentran.</p>
+</div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Service 1 -->
+<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 bg-primary-fixed opacity-5 group-hover:opacity-20 transition-opacity"></div>
+<div class="absolute top-10 left-10 w-16 h-16 rounded-full bg-white flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="">coffee</span>
+</div>
+<div class="absolute bottom-10 left-10 right-10">
+<h3 class="text-2xl font-bold mb-4" style="">Sublimación</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="">Mugs y textiles con acabados permanentes y colores vivos.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/60 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Termos</span>
+<span class="px-3 py-1 bg-white/60 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Textil</span>
+</div>
+</div>
+</div>
+<!-- Service 2 -->
+<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-tertiary text-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 lg:translate-y-12">
+<div class="absolute top-10 left-10 w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="">precision_manufacturing</span>
+</div>
+<div class="absolute bottom-10 left-10 right-10">
+<h3 class="text-2xl font-bold mb-4" style="">Grabado Láser</h3>
+<p class="text-white/70 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="">Precisión en madera, cuero y acrílico para un toque eterno.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Maderas</span>
+<span class="px-3 py-1 bg-white/10 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Cuero</span>
+</div>
+</div>
+</div>
+<!-- Service 3 -->
+<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+<div class="absolute inset-0 bg-secondary-fixed opacity-5 group-hover:opacity-20 transition-opacity"></div>
+<div class="absolute top-10 left-10 w-16 h-16 rounded-full bg-white flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="">auto_awesome</span>
+</div>
+<div class="absolute bottom-10 left-10 right-10">
+<h3 class="text-2xl font-bold mb-4" style="">Papelería</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="">Etiquetas y branding de autor con texturas orgánicas.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/60 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Stickers</span>
+<span class="px-3 py-1 bg-white/60 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Branding</span>
+</div>
+</div>
+</div>
+<!-- Service 4 -->
+<div class="group relative aspect-[3/4] rounded-[2.5rem] overflow-hidden bg-primary text-white shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 lg:translate-y-12">
+<div class="absolute top-10 left-10 w-16 h-16 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl" style="">celebration</span>
+</div>
+<div class="absolute bottom-10 left-10 right-10">
+<h3 class="text-2xl font-bold mb-4" style="">Eventos</h3>
+<p class="text-white/70 text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500" style="">Invitaciones y souvenirs que transforman celebraciones.</p>
+<div class="flex flex-wrap gap-2">
+<span class="px-3 py-1 bg-white/10 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Bodas</span>
+<span class="px-3 py-1 bg-white/10 text-[10px] uppercase tracking-wider font-bold rounded-full" style="">Regalos</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- How it Works: Fluid Hand-drawn feel -->
+<section class="py-40 relative bg-surface-container-low scroll-reveal visible" id="how-it-works">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row gap-12 items-end mb-24">
+<h2 class="text-5xl md:text-7xl font-bold flex-1" style="">Del boceto <br/><span class="italic text-primary font-normal font-headline">a tus manos</span></h2>
+<p class="text-on-surface-variant max-w-sm mb-4 font-light" style="">Un proceso fluido y artesanal pensado en la perfección de cada entrega.</p>
+</div>
+<div class="grid md:grid-cols-4 gap-12 relative">
+<!-- Steps with organic shapes -->
+<div class="relative group">
+<div class="text-9xl font-serif italic text-primary/5 absolute -top-16 -left-4 select-none group-hover:text-primary/10 transition-colors" style="">01</div>
+<div class="relative z-10 pt-10">
+<h4 class="text-2xl font-bold mb-4" style="">Idea &amp; Concepto</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed font-light" style="">Cuéntanos tu proyecto. Escuchamos cada detalle para entender tu visión.</p>
+</div>
+</div>
+<div class="relative group md:mt-20">
+<div class="text-9xl font-serif italic text-primary/5 absolute -top-16 -left-4 select-none group-hover:text-primary/10 transition-colors" style="">02</div>
+<div class="relative z-10 pt-10">
+<h4 class="text-2xl font-bold mb-4" style="">Propuesta Digital</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed font-light" style="">Enviamos bocetos visuales para que veas tu producto antes de producirlo.</p>
+</div>
+</div>
+<div class="relative group">
+<div class="text-9xl font-serif italic text-primary/5 absolute -top-16 -left-4 select-none group-hover:text-primary/10 transition-colors" style="">03</div>
+<div class="relative z-10 pt-10">
+<h4 class="text-2xl font-bold mb-4" style="">Mano de Obra</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed font-light" style="">Fabricación cuidadosa mezclando tecnología láser y acabado manual.</p>
+</div>
+</div>
+<div class="relative group md:mt-20">
+<div class="text-9xl font-serif italic text-primary/5 absolute -top-16 -left-4 select-none group-hover:text-primary/10 transition-colors" style="">04</div>
+<div class="relative z-10 pt-10">
+<h4 class="text-2xl font-bold mb-4" style="">Envío Seguro</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed font-light" style="">Recibe tu pieza lista para regalar o lucir, empacada con cariño.</p>
+</div>
+</div>
+<!-- SVG Path for connection - visible on desktop -->
+<svg class="hidden md:block absolute top-1/2 left-0 w-full h-32 -z-10 opacity-10 pointer-events-none" fill="none" viewbox="0 0 1000 100">
+<path d="M0 50 Q 250 100 500 50 T 1000 50" stroke="#95442a" stroke-dasharray="10 10" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</section>
+
+<!-- CTA Section: Artistic Composition -->
+<section class="py-40 px-8 scroll-reveal visible">
+<div class="max-w-6xl mx-auto bg-primary rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden shadow-2xl shadow-primary/30">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<svg class="w-full h-full" fill="none" viewbox="0 0 800 800">
+<circle cx="400" cy="400" r="300" stroke="white" stroke-width="0.5"></circle>
+<circle cx="400" cy="400" r="200" stroke="white" stroke-width="0.5"></circle>
+<path d="M0 800 L800 0" stroke="white" stroke-width="0.5"></path>
+</svg>
+</div>
+<div class="relative z-10 space-y-10">
+<h2 class="text-5xl md:text-8xl font-bold text-white tracking-tight leading-[1]" style="">¿Tienes un proyecto <br/><span class="italic font-normal font-headline">especial?</span></h2>
+<p class="text-xl text-white/80 max-w-2xl mx-auto font-light leading-relaxed" style="">
+                        Estamos listos para escucharte y dar vida a tus ideas con la mayor dedicación. Cada consulta es el inicio de algo único.
+                    </p>
+<a class="inline-flex items-center gap-6 px-12 py-6 bg-white text-primary rounded-full text-xl font-bold hover:scale-105 hover:-rotate-2 transition-transform shadow-2xl" href="https://wa.me/#" style="">
+                        Hablemos por WhatsApp
+                        <span class="material-symbols-outlined text-3xl" style="">chat</span>
+</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Floating WhatsApp FAB -->
+<a class="fixed bottom-10 right-10 z-[60] bg-[#25D366] text-white p-5 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all group flex items-center gap-2 overflow-hidden max-w-[64px] hover:max-w-[280px] duration-500" href="https://wa.me/#" style="">
+<svg class="w-8 h-8 fill-current shrink-0" viewbox="0 0 24 24">
+<path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217s.231.001.332.005c.109.004.253-.041.397.303.145.346.496 1.213.539 1.3.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.101-.177.211-.077.385.101.173.447.737.959 1.193.658.587 1.215.77 1.388.857.173.087.275.072.376-.043s.433-.506.549-.68c.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.13.332.202.045.072.045.419-.1.824z"></path>
+</svg>
+<span class="font-bold whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity" style="">¿Conversamos?</span>
+</a>
+<!-- Footer -->
+<footer class="bg-stone-50 w-full border-t border-outline-variant/10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-16 px-8 py-24 max-w-7xl mx-auto items-start">
+<div class="space-y-8 md:col-span-2">
+<div class="font-serif text-3xl text-primary font-bold" style="">Suspiros <span class="italic font-normal" style="">De Papel</span></div>
+<p class="text-on-surface-variant text-base max-w-sm leading-relaxed font-light" style="">
+                    Personalización artesanal con alma. Especialistas en hacer que cada detalle sea un recuerdo inolvidable para siempre.
+                </p>
+<div class="flex gap-6">
+<a class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
+<span class="material-symbols-outlined" style="">share</span>
+</a>
+<a class="w-12 h-12 rounded-full border border-primary/20 flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all" href="#" style="">
+<span class="material-symbols-outlined" style="">camera</span>
+</a>
+</div>
+</div>
+<div class="space-y-8">
+<h4 class="font-bold text-sm uppercase tracking-widest text-primary" style="">Navegación</h4>
+<ul class="space-y-4 text-on-surface-variant font-light">
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#services" style="">Servicios</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#gallery" style="">Portfolio</a></li>
+<li class="" style=""><a class="hover:text-primary transition-colors" href="#" style="">FAQ</a></li>
+</ul>
+</div>
+<div class="space-y-8">
+<h4 class="font-bold text-sm uppercase tracking-widest text-primary" style="">Contacto</h4>
+<ul class="space-y-6 text-on-surface-variant font-light">
+<li class="flex items-start gap-4" style="">
+<span class="material-symbols-outlined text-primary" style="">location_on</span>
+<span class="" style="">Envíos seguros a todo el territorio nacional</span>
+</li>
+<li class="flex items-center gap-4" style="">
+<span class="material-symbols-outlined text-primary" style="">mail</span>
+<span class="" style="">hola@suspirosdepapel.com</span>
+</li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 py-10 border-t border-outline-variant/10 flex flex-col md:row justify-between items-center gap-6">
+<p class="text-stone-400 text-xs tracking-widest uppercase" style="">© 2024 Suspiros De Papel. Handcrafted Excellence.</p>
+<div class="flex gap-12 text-[10px] font-bold tracking-widest uppercase text-stone-400">
+<a class="hover:text-primary" href="#" style="">Términos</a>
+<a class="hover:text-primary" href="#" style="">Privacidad</a>
+</div>
+</div>
+</footer>
+<script>
+        // Simple scroll reveal
+        const observerOptions = {
+            threshold: 0.1
+        };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('scroll-reveal');
+            observer.observe(section);
+        });
+    </script>
+</body></html>

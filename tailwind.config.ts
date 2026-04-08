@@ -21,6 +21,8 @@ export default {
       fontFamily: {
         headline: ["var(--font-noto-serif)", "serif"],
         body:     ["var(--font-plus-jakarta)", "sans-serif"],
+        display:  ["var(--font-noto-serif)", "serif"],
+        // <- cambiar solo aquí en el futuro para el h1
       },
     },
   },

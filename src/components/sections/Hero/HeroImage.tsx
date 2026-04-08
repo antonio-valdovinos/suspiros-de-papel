@@ -20,22 +20,17 @@ export default function HeroImage() {
 
       {/* Círculo decorativo — "100% Hecho a Mano" */}
       <div
-        className="absolute -bottom-12 -left-12 w-52 h-52 rounded-full text-white flex flex-col items-center justify-center text-center shadow-2xl z-20 -rotate-6"
-        style={{ backgroundColor: "var(--color-tertiary)" }}
+        className="absolute -bottom-10 -left-10 w-56 h-56 rounded-full bg-tertiary p-8 text-white z-20 flex flex-col justify-center items-center text-center shadow-2xl -rotate-6"
       >
-        <span className="text-3xl mb-2 opacity-50">✦</span>
-        <p className="text-xs font-bold uppercase tracking-widest px-4">
+        <span className="text-4xl mb-3 opacity-50">✦</span>
+        <p className="font-bold text-xs uppercase tracking-widest">
           100% Hecho a Mano
         </p>
       </div>
 
       {/* Fondo orgánico detrás de la imagen */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] opacity-30 -z-10 rotate-45"
-        style={{
-          backgroundColor: "var(--color-secondary-fixed)",
-          borderRadius: "60% 40% 30% 70% / 60% 30% 70% 40%",
-        }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-secondary-fixed organic-blob opacity-30 -z-10 rotate-45"
       />
 
     </div>
