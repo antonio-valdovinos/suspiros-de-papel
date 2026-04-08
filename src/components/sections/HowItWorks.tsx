@@ -36,19 +36,18 @@ export default function HowItWorks() {
     <section
       ref={ref}
       id="process"
-      className="scroll-reveal py-40 relative"
-      style={{ backgroundColor: "var(--color-surface-container-low)" }}
+      className="scroll-reveal py-40 relative bg-surface-container-low"
     >
       <div className="max-w-7xl mx-auto px-8">
 
         <div className="flex flex-col md:flex-row gap-12 items-end mb-24">
           <h2 className="text-5xl md:text-7xl font-bold flex-1">
             Del boceto{" "}
-            <span className="block italic font-normal" style={{ color: "var(--color-primary)" }}>
+            <span className="block italic font-normal text-primary">
               a tus manos
             </span>
           </h2>
-          <p className="max-w-sm mb-4 font-light" style={{ color: "var(--color-on-surface-variant)" }}>
+          <p className="max-w-sm mb-4 font-light text-on-surface-variant">
             Un proceso fluido y artesanal pensado en la perfección de cada entrega.
           </p>
         </div>
@@ -63,7 +62,7 @@ export default function HowItWorks() {
               </div>
               <div className="relative z-10 pt-10">
                 <h4 className="text-2xl font-bold mb-4">{step.title}</h4>
-                <p className="text-sm leading-relaxed font-light" style={{ color: "var(--color-on-surface-variant)" }}>
+                <p className="text-sm leading-relaxed font-light text-on-surface-variant">
                   {step.description}
                 </p>
               </div>

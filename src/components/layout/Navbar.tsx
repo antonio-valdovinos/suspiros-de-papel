@@ -4,8 +4,22 @@ import Link from "next/link"
 import { useEffect, useState } from "react"
 import { SITE } from "@/constants/site"
 
+const IconMenu = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
+  </svg>
+)
+
+const IconX = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+    <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+  </svg>
+)
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+  const waLink = `https://wa.me/${SITE.whatsapp}`
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -36,9 +50,8 @@ export default function Navbar() {
           <NavLink href="#process">Proceso</NavLink>
           <NavLink href="#portfolio">Portfolio</NavLink>
 
-          {/* Botón Contacto */}
           <Link
-            href={`https://wa.me/${SITE.whatsapp}`}
+            href={waLink}
             target="_blank"
             rel="noopener noreferrer"
             className="bg-primary hover:bg-primary-container text-white px-8 py-2.5 rounded-full text-sm font-semibold no-underline shadow-sm transition-colors duration-200"
@@ -50,15 +63,25 @@ export default function Navbar() {
         {/* Hamburger mobile */}
         <button
           className="md:hidden text-on-surface-variant bg-transparent border-none cursor-pointer p-2"
-          aria-label="Abrir menú"
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          onClick={() => setIsOpen((prev) => !prev)}
         >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-            <line x1="3" y1="7" x2="21" y2="7" />
-            <line x1="3" y1="12" x2="21" y2="12" />
-            <line x1="3" y1="17" x2="21" y2="17" />
-          </svg>
+          {isOpen ? <IconX /> : <IconMenu />}
         </button>
       </nav>
+
+      {/* Panel mobile */}
+      {isOpen && (
+        <div className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/10 px-8 py-6 flex flex-col gap-6">
+          <a href="#services"    onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors">Servicios</a>
+          <a href="#process"     onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors">Proceso</a>
+          <a href="#portfolio"   onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors">Portfolio</a>
+          <a href={waLink} target="_blank" rel="noopener noreferrer"
+             className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center">
+            Contacto
+          </a>
+        </div>
+      )}
     </header>
   )
 }

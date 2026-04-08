@@ -15,11 +15,7 @@ export default function CTA() {
         className="scroll-reveal py-40 px-8"
       >
         <div
-          className="max-w-6xl mx-auto rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden"
-          style={{
-            backgroundColor: "var(--color-primary)",
-            boxShadow: "0 25px 50px rgba(149, 68, 42, 0.3)",
-          }}
+          className="max-w-6xl mx-auto rounded-[4rem] p-16 md:p-32 text-center relative overflow-hidden bg-primary shadow-2xl shadow-primary/30"
         >
           {/* Decoración interior */}
           <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -45,8 +41,7 @@ export default function CTA() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-6 px-12 py-6 bg-white rounded-full text-xl font-bold hover:scale-105 hover:-rotate-2 transition-transform shadow-2xl"
-              style={{ color: "var(--color-primary)" }}
+              className="inline-flex items-center gap-6 px-12 py-6 bg-white rounded-full text-xl font-bold hover:scale-105 hover:-rotate-2 transition-transform shadow-2xl text-primary"
             >
               Hablemos por WhatsApp
               <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">

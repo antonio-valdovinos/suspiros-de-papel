@@ -16,6 +16,7 @@ export default {
         tertiary:             "#5b5e41",
         background:           "#fdf9f5",
         surface:              "#fdf9f5",
+        "surface-container-low": "#f7f3ef",
         "on-surface":         "#1c1c19",
         "on-surface-variant": "#55433d",
         "outline-variant":    "#dbc1ba",
