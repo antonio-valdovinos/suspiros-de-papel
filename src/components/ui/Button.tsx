@@ -1,30 +1,67 @@
-import clsx from "clsx"
+"use client"
+
 import Link from "next/link"
+
+type ButtonProps = {
+  children: React.ReactNode
+  href?: string
+  variant?: "primary" | "ghost"
+  target?: string
+  rel?: string
+}
 
 export default function Button({
   children,
   href,
-  variant = "primary"
-}: {
-  children: React.ReactNode
-  href?: string
-  variant?: "primary" | "ghost"
-}) {
-  const base = "inline-flex items-center gap-3 rounded-full font-semibold transition-all duration-300"
+  variant = "primary",
+  target,
+  rel,
+}: ButtonProps) {
 
-  const styles = {
-    primary:
-      "px-10 py-5 bg-primary text-white text-lg shadow-xl shadow-primary/20 hover:-translate-y-1 hover:shadow-2xl",
+  const primaryStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.75rem",
+    backgroundColor: "#95442a",
+    color: "#ffffff",
+    padding: "0.875rem 2.5rem",
+    borderRadius: "9999px",
+    fontSize: "1rem",
+    fontWeight: 600,
+    textDecoration: "none",
+    boxShadow: "0 8px 24px rgba(149, 68, 42, 0.25)",
+    transition: "all 0.3s ease",
+    border: "none",
+    cursor: "pointer",
+  } as React.CSSProperties
 
-    ghost:
-      "text-on-surface font-semibold border-b-2 border-primary/20 hover:border-primary py-1"
-  }
+  const ghostStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "0.5rem",
+    backgroundColor: "transparent",
+    color: "#1c1c19",
+    fontSize: "1rem",
+    fontWeight: 600,
+    textDecoration: "none",
+    borderBottom: "2px solid rgba(149, 68, 42, 0.2)",
+    paddingBottom: "0.25rem",
+    cursor: "pointer",
+    border: "none",
+    borderBottomWidth: "2px",
+    borderBottomStyle: "solid",
+    borderBottomColor: "rgba(149, 68, 42, 0.2)",
+  } as React.CSSProperties
 
-  const className = clsx(base, styles[variant])
+  const style = variant === "primary" ? primaryStyle : ghostStyle
 
   if (href) {
-    return <Link href={href} className={className}>{children}</Link>
+    return (
+      <Link href={href} style={style} target={target} rel={rel}>
+        {children}
+      </Link>
+    )
   }
 
-  return <button className={className}>{children}</button>
+  return <button style={style}>{children}</button>
 }
