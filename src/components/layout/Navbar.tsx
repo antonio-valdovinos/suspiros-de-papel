@@ -15,57 +15,23 @@ export default function Navbar() {
 
   return (
     <header
-      style={{
-        position: "fixed",
-        top: 0,
-        width: "100%",
-        zIndex: 50,
-        backdropFilter: "blur(24px)",
-        WebkitBackdropFilter: "blur(24px)",
-        borderBottom: "1px solid rgba(219, 193, 186, 0.1)",
-        backgroundColor: scrolled
-          ? "rgba(253, 249, 245, 0.92)"
-          : "rgba(253, 249, 245, 0.60)",
-        transition: "background-color 0.5s ease",
-      }}
+      className={[
+        "fixed top-0 w-full z-50 backdrop-blur-xl border-b border-outline-variant/10 transition-colors duration-500",
+        scrolled ? "bg-surface/80" : "bg-surface/60",
+      ].join(" ")}
     >
-      <nav
-        style={{
-          maxWidth: "80rem",
-          margin: "0 auto",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "1rem 2rem",
-        }}
-      >
+      <nav className="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
         {/* LOGO */}
         <Link
           href="/"
-          style={{
-            fontSize: "1.5rem",
-            fontFamily: "var(--font-noto-serif), serif",
-            fontWeight: 700,
-            color: "#95442a",
-            letterSpacing: "-0.025em",
-            textDecoration: "none",
-          }}
+          className="text-2xl font-headline font-bold text-primary tracking-tight no-underline"
         >
           Suspiros{" "}
-          <span style={{ fontStyle: "italic", fontWeight: 400 }}>
-            De Papel
-          </span>
+          <span className="italic font-normal">De Papel</span>
         </Link>
 
         {/* LINKS desktop */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "3rem",
-          }}
-          className="hidden md:flex"
-        >
+        <div className="hidden md:flex items-center gap-12">
           <NavLink href="#services">Servicios</NavLink>
           <NavLink href="#process">Proceso</NavLink>
           <NavLink href="#portfolio">Portfolio</NavLink>
@@ -75,19 +41,7 @@ export default function Navbar() {
             href={`https://wa.me/${SITE.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              backgroundColor: "#95442a",
-              color: "#ffffff",
-              padding: "0.625rem 2rem",
-              borderRadius: "9999px",
-              fontSize: "0.875rem",
-              fontWeight: 600,
-              textDecoration: "none",
-              boxShadow: "0 2px 8px rgba(149, 68, 42, 0.10)",
-              transition: "background-color 0.2s ease",
-            }}
-            onMouseEnter={e => (e.currentTarget.style.backgroundColor = "#b45b3f")}
-            onMouseLeave={e => (e.currentTarget.style.backgroundColor = "#95442a")}
+            className="bg-primary hover:bg-primary-container text-white px-8 py-2.5 rounded-full text-sm font-semibold no-underline shadow-sm transition-colors duration-200"
           >
             Contacto
           </Link>
@@ -95,9 +49,8 @@ export default function Navbar() {
 
         {/* Hamburger mobile */}
         <button
-          className="md:hidden"
+          className="md:hidden text-on-surface-variant bg-transparent border-none cursor-pointer p-2"
           aria-label="Abrir menú"
-          style={{ color: "#55433d", background: "none", border: "none", cursor: "pointer", padding: "0.5rem" }}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
             <line x1="3" y1="7" x2="21" y2="7" />
@@ -114,12 +67,7 @@ function NavLink({ href, children }: { href: string; children: React.ReactNode }
   return (
     <Link
       href={href}
-      style={{
-        color: "#55433d",
-        fontSize: "0.875rem",
-        fontWeight: 500,
-        textDecoration: "none",
-      }}
+      className="text-on-surface-variant text-sm font-medium no-underline"
     >
       {children}
     </Link>

@@ -18,50 +18,21 @@ export default function Button({
   rel,
 }: ButtonProps) {
 
-  const primaryStyle = {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.75rem",
-    backgroundColor: "#95442a",
-    color: "#ffffff",
-    padding: "0.875rem 2.5rem",
-    borderRadius: "9999px",
-    fontSize: "1rem",
-    fontWeight: 600,
-    textDecoration: "none",
-    boxShadow: "0 8px 24px rgba(149, 68, 42, 0.25)",
-    transition: "all 0.3s ease",
-    border: "none",
-    cursor: "pointer",
-  } as React.CSSProperties
+  const primaryClass =
+    "inline-flex items-center gap-3 bg-primary text-white rounded-full px-10 py-3.5 font-semibold shadow-xl no-underline border-none cursor-pointer"
 
-  const ghostStyle = {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    backgroundColor: "transparent",
-    color: "#1c1c19",
-    fontSize: "1rem",
-    fontWeight: 600,
-    textDecoration: "none",
-    borderBottom: "2px solid rgba(149, 68, 42, 0.2)",
-    paddingBottom: "0.25rem",
-    cursor: "pointer",
-    border: "none",
-    borderBottomWidth: "2px",
-    borderBottomStyle: "solid",
-    borderBottomColor: "rgba(149, 68, 42, 0.2)",
-  } as React.CSSProperties
+  const ghostClass =
+    "inline-flex items-center gap-2 text-on-surface font-semibold no-underline border-none border-b-2 border-primary/20 pb-1 bg-transparent cursor-pointer"
 
-  const style = variant === "primary" ? primaryStyle : ghostStyle
+  const className = variant === "primary" ? primaryClass : ghostClass
 
   if (href) {
     return (
-      <Link href={href} style={style} target={target} rel={rel}>
+      <Link href={href} className={className} target={target} rel={rel}>
         {children}
       </Link>
     )
   }
 
-  return <button style={style}>{children}</button>
+  return <button className={className}>{children}</button>
 }
