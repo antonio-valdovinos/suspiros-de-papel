@@ -1,8 +1,9 @@
 "use client"
 import { useScrollReveal } from "@/hooks/useScrollReveal"
 import Container from "@/components/ui/Container"
+import { SERVICES, type ServiceVariant } from "@/constants/services"
 
-// ── SVG Icons (replican Material Symbols del boceto) ──────────────────────
+// ── SVG Icons ────────────────────────────────────────────────────────────────
 const IconCoffee = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
     fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -49,42 +50,16 @@ const IconCelebration = () => (
     <circle cx="16.5" cy="7.5" r="2.5" />
   </svg>
 )
-// ─────────────────────────────────────────────────────────────────────────
 
-const services = [
-  {
-    title: "Sublimación",
-    description: "Mugs y textiles con acabados permanentes y colores vivos.",
-    tags: ["Termos", "Textil"],
-    icon: <IconCoffee />,
-    variant: "light" as const,
-  },
-  {
-    title: "Grabado Láser",
-    description: "Precisión en madera, cuero y acrílico para un toque eterno.",
-    tags: ["Maderas", "Cuero"],
-    icon: <IconLaser />,
-    variant: "dark-tertiary" as const,
-  },
-  {
-    title: "Papelería",
-    description: "Etiquetas y branding de autor con texturas orgánicas.",
-    tags: ["Stickers", "Branding"],
-    icon: <IconSparkles />,
-    variant: "light" as const,
-  },
-  {
-    title: "Eventos",
-    description: "Invitaciones y souvenirs que transforman celebraciones.",
-    tags: ["Bodas", "Regalos"],
-    icon: <IconCelebration />,
-    variant: "dark-primary" as const,
-  },
-]
+const ICONS: Record<string, React.ReactNode> = {
+  sublimation: <IconCoffee />,
+  laser:       <IconLaser />,
+  stationery:  <IconSparkles />,
+  events:      <IconCelebration />,
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
-type Variant = "light" | "dark-tertiary" | "dark-primary"
-
-const cardStyles: Record<Variant, {
+const cardStyles: Record<ServiceVariant, {
   card: string
   iconBg: string
   iconText: string
@@ -146,16 +121,16 @@ export default function Services() {
 
         {/* Grid de cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service) => {
+          {SERVICES.map((service) => {
             const s = cardStyles[service.variant]
             return (
               <div
-                key={service.title}
+                key={service.id}
                 className={`group relative aspect-[4/3] sm:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${s.card} ${s.offset}`}
               >
                 {/* Icono */}
                 <div className={`absolute top-6 left-6 lg:top-10 lg:left-10 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${s.iconBg} ${s.iconText}`}>
-                  {service.icon}
+                  {ICONS[service.id]}
                 </div>
 
                 {/* Contenido inferior */}
