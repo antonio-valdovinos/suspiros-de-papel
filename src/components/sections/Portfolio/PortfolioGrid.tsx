@@ -59,7 +59,7 @@ export default function PortfolioGrid({
             className="
               px-10 py-4 rounded-full border-2 border-primary/30
               text-primary font-semibold text-sm uppercase tracking-widest
-              hover:bg-primary hover:text-white hover:border-primary
+              hover:bg-primary hover:text-on-primary hover:border-primary
               transition-all duration-300
             "
           >

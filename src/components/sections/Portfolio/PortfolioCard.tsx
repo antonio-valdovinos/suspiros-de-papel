@@ -51,14 +51,14 @@ export default function PortfolioCard({ item, priority = false }: Props) {
             self-start mb-3
             px-3 py-1 rounded-full
             text-[10px] font-bold uppercase tracking-widest
-            bg-white/20 text-primary-fixed
+            bg-surface-container-lowest/20 text-primary-fixed
             backdrop-blur-sm
           "
         >
           {categoryLabel}
         </span>
 
-        <h3 className="font-headline italic text-2xl text-white leading-tight">
+        <h3 className="font-headline italic text-2xl text-on-primary leading-tight">
           {item.title}
         </h3>
       </div>

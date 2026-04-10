@@ -14,7 +14,7 @@ export default function PortfolioPage() {
     <main className="pt-28 pb-32 min-h-screen bg-background">
       <Container>
         <div className="text-center mb-14 lg:mb-20">
-          <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4">
+          <p className="text-primary text-xs font-bold uppercase tracking-eyebrow mb-4">
             Portafolio completo
           </p>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-headline font-bold text-on-surface mb-6">

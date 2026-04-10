@@ -32,10 +32,10 @@ export default function PortfolioPreview() {
       <Container>
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-16">
           <div>
-            <p className="text-primary text-xs font-bold uppercase tracking-[0.2em] mb-4">
+            <p className="text-primary text-xs font-bold uppercase tracking-eyebrow mb-4">
               Nuestro Trabajo
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-headline font-bold text-on-surface leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-tight">
               Piezas creadas{" "}
               <br className="hidden lg:block" />
               <span className="italic font-normal">con alma.</span>
@@ -69,7 +69,7 @@ export default function PortfolioPreview() {
             className="
               group inline-flex items-center gap-3
               px-10 py-4 rounded-full
-              bg-primary text-white font-semibold
+              bg-primary text-on-primary font-semibold
               shadow-lg shadow-primary/20
               hover:-translate-y-0.5 transition-all duration-300
             "

@@ -4,4 +4,5 @@ export const SITE = {
   description: "Sublimación, grabado láser y papelería creativa diseñada para momentos que merecen ser eternos.",
   whatsapp: "7551212871",
   email: "suspirosdepapel2@gmail.com",
+  instagramUrl: "https://www.instagram.com/suspirosdepapel_/",
 } as const

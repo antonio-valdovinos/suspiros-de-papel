@@ -42,7 +42,7 @@ export default function HowItWorks() {
       <Container>
 
         <div className="flex flex-col md:flex-row gap-12 items-end mb-12 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold flex-1">
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-headline font-bold text-on-surface flex-1">
             Tu piensalo{" "}
             <span className="block italic font-normal text-primary">
               nosotros lo creamos
@@ -57,7 +57,7 @@ export default function HowItWorks() {
           {STEPS.map((step) => (
             <div key={step.number} className={`relative group ${step.offset ? "lg:mt-20" : ""}`}>
               {/* Número decorativo — en mobile fluye con el contenido, en desktop es absoluto */}
-              <div className="text-7xl lg:text-9xl font-serif italic select-none pointer-events-none text-primary/10 leading-none mb-2 lg:mb-0 lg:absolute lg:-top-16 lg:-left-4">
+              <div className="text-7xl lg:text-9xl font-headline italic select-none pointer-events-none text-primary/10 leading-none mb-2 lg:mb-0 lg:absolute lg:-top-16 lg:-left-4">
                 {step.number}
               </div>
               <div className="lg:pt-10">

@@ -6,7 +6,7 @@ export default function HeroContent() {
     <div className="lg:col-span-7 z-20 space-y-6 lg:space-y-8 lg:pr-12">
 
       {/* Badge */}
-      <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-white/40 backdrop-blur-sm border border-outline-variant/20 text-secondary text-xs font-bold tracking-widest uppercase">
+      <div className="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-surface-container-lowest/40 backdrop-blur-sm border border-outline-variant/20 text-secondary text-xs font-bold tracking-widest uppercase">
         <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
         Artesanía Digital &amp; Creativa
       </div>

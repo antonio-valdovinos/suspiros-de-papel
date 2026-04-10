@@ -22,7 +22,7 @@ export default function CategoryTabs({ active, onChange }: Props) {
               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50
               ${
                 isActive
-                  ? "bg-primary text-white border-primary shadow-lg shadow-primary/20 scale-105"
+                  ? "bg-primary text-on-primary border-primary shadow-lg shadow-primary/20 scale-105"
                   : "border-outline-variant/40 text-on-surface-variant hover:border-primary hover:text-primary bg-transparent"
               }
             `}

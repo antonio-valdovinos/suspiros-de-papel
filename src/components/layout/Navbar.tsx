@@ -67,7 +67,7 @@ export default function Navbar() {
               href={waLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary hover:bg-primary-container text-white px-8 py-2.5 rounded-full text-sm font-semibold no-underline shadow-sm transition-colors duration-200"
+              className="bg-primary hover:bg-primary-container text-on-primary px-8 py-2.5 rounded-full text-sm font-semibold no-underline shadow-sm transition-colors duration-200"
             >
               Contacto
             </Link>
@@ -94,7 +94,7 @@ export default function Navbar() {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center mt-2"
+            className="bg-primary text-on-primary px-8 py-3 rounded-full text-sm font-semibold text-center mt-2"
           >
             Contacto
           </a>
