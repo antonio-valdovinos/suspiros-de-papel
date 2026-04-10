@@ -22,14 +22,22 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const pathname = usePathname()
+  const isHome = pathname === "/"
   const waLink = `https://wa.me/${SITE.whatsapp}`
-  const portfolioHref = pathname === "/" ? "#portfolio" : "/portfolio"
+
+  // When on home, use in-page anchors (smooth scroll via NavLink).
+  // When on any other page, navigate to home + anchor so the browser jumps on load.
+  const servicesHref   = isHome ? "#services"     : "/#services"
+  const howItWorksHref = isHome ? "#how-it-works" : "/#how-it-works"
+  const portfolioHref  = isHome ? "#portfolio"    : "/portfolio"
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  const closeMobile = () => setIsOpen(false)
 
   return (
     <header
@@ -40,20 +48,20 @@ export default function Navbar() {
     >
       <Container>
         <nav className="flex justify-between items-center py-4">
-          {/* LOGO */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="text-2xl font-headline font-bold text-primary tracking-tight cursor-pointer bg-transparent border-none"
+          {/* LOGO — Link to home from any page */}
+          <Link
+            href="/"
+            className="text-2xl font-headline font-bold text-primary tracking-tight no-underline"
           >
             Suspiros{" "}
             <span className="italic font-normal">De Papel</span>
-          </button>
+          </Link>
 
           {/* LINKS desktop */}
           <div className="hidden md:flex items-center gap-12">
-            <NavLink href="#services">Servicios</NavLink>
-            <NavLink href="#how-it-works">Proceso</NavLink>
             <NavLink href={portfolioHref}>Portafolio</NavLink>
+            <NavLink href={servicesHref}>Servicios</NavLink>
+            <NavLink href={howItWorksHref}>Proceso</NavLink>
 
             <Link
               href={waLink}
@@ -76,14 +84,18 @@ export default function Navbar() {
         </nav>
       </Container>
 
-      {/* Panel mobile — fuera del Container para ocupar full width */}
+      {/* Panel mobile */}
       {isOpen && (
         <div className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/10 px-4 py-6 flex flex-col gap-4">
-          <a href="#services"    onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Servicios</a>
-          <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Proceso</a>
-          <a href={portfolioHref} onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Portafolio</a>
-          <a href={waLink} target="_blank" rel="noopener noreferrer"
-             className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center mt-2">
+          <NavLink href={portfolioHref}  onClick={closeMobile} mobile>Portafolio</NavLink>
+          <NavLink href={servicesHref}   onClick={closeMobile} mobile>Servicios</NavLink>
+          <NavLink href={howItWorksHref} onClick={closeMobile} mobile>Proceso</NavLink>
+          <a
+            href={waLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center mt-2"
+          >
             Contacto
           </a>
         </div>
@@ -95,28 +107,33 @@ export default function Navbar() {
 type NavLinkProps = {
   href: string
   onClick?: () => void
+  mobile?: boolean
   children: React.ReactNode
 }
 
-function NavLink({ href, onClick, children }: NavLinkProps) {
+function NavLink({ href, onClick, mobile = false, children }: NavLinkProps) {
   const handleClick = (e: React.MouseEvent) => {
+    // In-page anchor: smooth scroll to section
     if (href.startsWith("#") && href.length > 1) {
       e.preventDefault()
       const el = document.getElementById(href.slice(1))
       if (el) {
-        const navHeight = 80 // navbar ~64px + margen
-        const top = el.getBoundingClientRect().top + window.scrollY - navHeight
+        const top = el.getBoundingClientRect().top + window.scrollY - 80
         window.scrollTo({ top, behavior: "smooth" })
       }
     }
     onClick?.()
   }
 
+  const baseClass = "no-underline hover:text-primary transition-colors"
+  const desktopClass = "text-on-surface-variant text-sm font-medium"
+  const mobileClass  = "text-on-surface-variant font-medium py-1"
+
   return (
     <Link
       href={href}
       onClick={handleClick}
-      className="text-on-surface-variant text-sm font-medium no-underline hover:text-primary transition-colors"
+      className={`${baseClass} ${mobile ? mobileClass : desktopClass}`}
     >
       {children}
     </Link>

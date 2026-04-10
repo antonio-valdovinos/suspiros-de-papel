@@ -29,7 +29,7 @@ export default function HeroContent() {
         <Button href={`https://wa.me/${SITE.whatsapp}`}>
           Pedir por WhatsApp →
         </Button>
-        <Button variant="ghost" href="#services">
+        <Button variant="ghost" href="/portfolio">
           Explorar Catálogo
         </Button>
       </div>
