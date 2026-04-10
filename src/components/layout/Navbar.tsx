@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import { SITE } from "@/constants/site"
 import Container from "@/components/ui/Container"
 
@@ -20,7 +21,9 @@ const IconX = () => (
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
   const waLink = `https://wa.me/${SITE.whatsapp}`
+  const portfolioHref = pathname === "/" ? "#portfolio" : "/portfolio"
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -50,8 +53,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-12">
             <NavLink href="#services">Servicios</NavLink>
             <NavLink href="#how-it-works">Proceso</NavLink>
-            {/* TODO: reemplazar href cuando exista la sección #portfolio */}
-            <NavLink href="#" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>Portfolio</NavLink>
+            <NavLink href={portfolioHref}>Portafolio</NavLink>
 
             <Link
               href={waLink}
@@ -79,8 +81,7 @@ export default function Navbar() {
         <div className="md:hidden bg-surface/95 backdrop-blur-xl border-t border-outline-variant/10 px-4 py-6 flex flex-col gap-4">
           <a href="#services"    onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Servicios</a>
           <a href="#how-it-works" onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Proceso</a>
-          {/* TODO: reemplazar href cuando exista la sección #portfolio */}
-          <a href="#" onClick={() => { setIsOpen(false); window.scrollTo({ top: 0, behavior: "smooth" }) }} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Portfolio</a>
+          <a href={portfolioHref} onClick={() => setIsOpen(false)} className="text-on-surface-variant font-medium hover:text-primary transition-colors py-1">Portafolio</a>
           <a href={waLink} target="_blank" rel="noopener noreferrer"
              className="bg-primary text-white px-8 py-3 rounded-full text-sm font-semibold text-center mt-2">
             Contacto
