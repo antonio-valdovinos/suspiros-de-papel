@@ -5,7 +5,7 @@ import HeroImage from "./HeroImage"
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-visible py-20 line-art-bg">
+    <section className="relative lg:min-h-[90vh] flex items-center overflow-visible py-16 lg:py-20 line-art-bg">
 
       <HeroBackground />
 
