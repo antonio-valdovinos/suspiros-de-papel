@@ -53,15 +53,14 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-4 gap-8 lg:gap-12 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12 relative">
           {STEPS.map((step) => (
-            <div key={step.number} className={`relative group ${step.offset ? "md:mt-20" : ""}`}>
-              <div
-                className="text-7xl lg:text-9xl font-serif italic absolute -top-16 -left-4 select-none pointer-events-none text-primary/5 group-hover:text-primary/10 transition-colors"
-              >
+            <div key={step.number} className={`relative group ${step.offset ? "lg:mt-20" : ""}`}>
+              {/* Número decorativo — en mobile fluye con el contenido, en desktop es absoluto */}
+              <div className="text-7xl lg:text-9xl font-serif italic select-none pointer-events-none text-primary/10 leading-none mb-2 lg:mb-0 lg:absolute lg:-top-16 lg:-left-4">
                 {step.number}
               </div>
-              <div className="relative z-10 pt-8 lg:pt-10">
+              <div className="lg:pt-10">
                 <h4 className="text-2xl font-bold mb-4">{step.title}</h4>
                 <p className="text-sm leading-relaxed font-light text-on-surface-variant">
                   {step.description}

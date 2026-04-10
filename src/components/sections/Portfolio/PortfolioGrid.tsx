@@ -18,7 +18,7 @@ export default function PortfolioGrid({
   showLoadMore = false,
   initialVisible,
 }: Props) {
-  const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("all")
+  const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("todo")
   const [visible, setVisible] = useState(initialVisible ?? 999)
 
   const displayItems = showFilters ? filterByCategory(activeCategory) : initialItems

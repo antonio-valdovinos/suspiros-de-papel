@@ -1,10 +1,10 @@
 export type PortfolioCategory =
-  | "all"
-  | "mugs"
-  | "textile"
-  | "stationery"
-  | "accessories"
-  | "events"
+  | "todo"
+  | "tazas"
+  | "textil"
+  | "papeleria"
+  | "accesorios"
+  | "eventos"
 
 export type PortfolioItem = {
   id: string
@@ -17,20 +17,35 @@ export type PortfolioItem = {
 }
 
 export const PORTFOLIO_CATEGORIES: { id: PortfolioCategory; label: string }[] = [
-  { id: "all",         label: "Todo"              },
-  { id: "mugs",        label: "Tazas & Termos"    },
-  { id: "textile",     label: "Textil"            },
-  { id: "stationery",  label: "Papelería"         },
-  { id: "accessories", label: "Accesorios"        },
-  { id: "events",      label: "Regalos & Eventos" },
+  { id: "todo",       label: "Todo"              },
+  { id: "tazas",      label: "Tazas & Termos"    },
+  { id: "textil",     label: "Textil"            },
+  { id: "papeleria",  label: "Papelería"         },
+  { id: "accesorios", label: "Accesorios"        },
+  { id: "eventos",    label: "Regalos & Eventos" },
 ]
+
+// ─── CÓMO AGREGAR UNA IMAGEN ──────────────────────────────────────────────────
+// 1. Pon la imagen en: public/images/portfolio/nombre-del-archivo.png
+// 2. Copia el bloque de abajo y rellena los campos:
+//
+// {
+//   id: "id-unico-sin-espacios",        ← identificador único, nunca repetir
+//   title: "Nombre visible en hover",
+//   category: "tazas" | "textil" | "papeleria" | "accesorios" | "eventos",
+//   src: "/images/portfolio/nombre-del-archivo.png",
+//   alt: "Descripción accesible del producto",
+//   aspectRatio: "portrait" | "landscape" | "square",
+//   featured: false,                    ← true solo si quieres que aparezca en el home (máx 6)
+// },
+// ─────────────────────────────────────────────────────────────────────────────
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   // ── TAZAS & TERMOS ────────────────────────
   {
     id: "copa-grabado",
     title: "Copa Grabada",
-    category: "mugs",
+    category: "tazas",
     src: "/images/portfolio/Copa-grabado.png",
     alt: "Copa de cristal con nombre grabado a láser",
     aspectRatio: "portrait",
@@ -39,7 +54,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "bule-sublimado",
     title: "Bule Sublimado",
-    category: "mugs",
+    category: "tazas",
     src: "/images/portfolio/Bule-sublimado.png",
     alt: "Bule con diseño sublimado a todo color",
     aspectRatio: "square",
@@ -48,7 +63,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "termo-personalizado",
     title: "Termo Personalizado",
-    category: "mugs",
+    category: "tazas",
     src: "/images/portfolio/Termo-personalizado.png",
     alt: "Termo de acero con nombre e ilustración personalizada",
     aspectRatio: "portrait",
@@ -59,7 +74,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "playera-estampado",
     title: "Playera Estampada",
-    category: "textile",
+    category: "textil",
     src: "/images/portfolio/Playera-estampado.png",
     alt: "Playera de algodón con estampado personalizado",
     aspectRatio: "portrait",
@@ -68,7 +83,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "gorra-estampado",
     title: "Gorra Estampada",
-    category: "textile",
+    category: "textil",
     src: "/images/portfolio/Gorra-estampado.png",
     alt: "Gorra con bordado o estampado personalizado",
     aspectRatio: "landscape",
@@ -77,7 +92,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "bolsa-estampado",
     title: "Bolsa Estampada",
-    category: "textile",
+    category: "textil",
     src: "/images/portfolio/Bolsa-estampado.png",
     alt: "Bolsa de tela con estampado a color personalizado",
     aspectRatio: "landscape",
@@ -86,7 +101,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "bolsa-tote",
     title: "Bolsa Tote",
-    category: "textile",
+    category: "textil",
     src: "/images/portfolio/Bolsa-tote.jpg.png",
     alt: "Bolsa tote de lona con diseño impreso",
     aspectRatio: "landscape",
@@ -95,7 +110,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "calcetas-estampado",
     title: "Calcetas Estampadas",
-    category: "textile",
+    category: "textil",
     src: "/images/portfolio/Calcetas-estampado.png",
     alt: "Calcetas con diseño personalizado estampado",
     aspectRatio: "landscape",
@@ -106,7 +121,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "agenda-personalizada",
     title: "Agenda Personalizada",
-    category: "stationery",
+    category: "papeleria",
     src: "/images/portfolio/Agenda-personalizada.png",
     alt: "Agenda con portada personalizada e impresión de nombre",
     aspectRatio: "portrait",
@@ -115,7 +130,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "libreta-empastado",
     title: "Libreta Empastada",
-    category: "stationery",
+    category: "papeleria",
     src: "/images/portfolio/Libreta-empastado.png",
     alt: "Libreta con empaste personalizado y portada a color",
     aspectRatio: "portrait",
@@ -124,7 +139,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "libro-empastado",
     title: "Libro Empastado",
-    category: "stationery",
+    category: "papeleria",
     src: "/images/portfolio/Librro-empastado.png",
     alt: "Libro con empaste artesanal y diseño de portada personalizado",
     aspectRatio: "portrait",
@@ -133,7 +148,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "carpeta-personalizada",
     title: "Carpeta Personalizada",
-    category: "stationery",
+    category: "papeleria",
     src: "/images/portfolio/Carpeta-personalizada.png",
     alt: "Carpeta con portada impresa y diseño corporativo personalizado",
     aspectRatio: "portrait",
@@ -144,7 +159,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "abanico-personalizado",
     title: "Abanico Personalizado",
-    category: "accessories",
+    category: "accesorios",
     src: "/images/portfolio/Abanico-personalizado.png",
     alt: "Abanico artesanal con diseño e imagen personalizada",
     aspectRatio: "portrait",
@@ -153,7 +168,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "pines-personalizado",
     title: "Pines Personalizados",
-    category: "accessories",
+    category: "accesorios",
     src: "/images/portfolio/Pines-personalizado.png",
     alt: "Set de pines metálicos con diseños personalizados",
     aspectRatio: "square",
@@ -164,7 +179,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
   {
     id: "servilleta-personalizada",
     title: "Servilleta Personalizada",
-    category: "events",
+    category: "eventos",
     src: "/images/portfolio/Servilleta-personalizada.png",
     alt: "Servilleta bordada o impresa con nombre y fecha para evento especial",
     aspectRatio: "square",
@@ -175,6 +190,6 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
 export const FEATURED_ITEMS = PORTFOLIO_ITEMS.filter((item) => item.featured)
 
 export function filterByCategory(category: PortfolioCategory): PortfolioItem[] {
-  if (category === "all") return PORTFOLIO_ITEMS
+  if (category === "todo") return PORTFOLIO_ITEMS
   return PORTFOLIO_ITEMS.filter((item) => item.category === category)
 }

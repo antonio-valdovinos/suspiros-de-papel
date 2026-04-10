@@ -85,7 +85,7 @@ export default function Footer() {
           </h4>
           <ul className="space-y-4 text-on-surface-variant font-light">
             <li><Link href="#services" className="hover:text-primary transition-colors">Servicios</Link></li>
-            <li><Link href="#gallery"  className="hover:text-primary transition-colors">Portfolio</Link></li>
+            <li><Link href="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
             <li><Link href="#"         className="hover:text-primary transition-colors">FAQ</Link></li>
           </ul>
         </div>
