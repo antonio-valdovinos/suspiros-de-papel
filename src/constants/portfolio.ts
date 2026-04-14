@@ -140,7 +140,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     id: "libro-empastado",
     title: "Libro Empastado",
     category: "papeleria",
-    src: "/images/portfolio/Librro-empastado.webp",
+    src: "/images/portfolio/Libro-empastado.webp",
     alt: "Libro con empaste artesanal y diseño de portada personalizado",
     aspectRatio: "portrait",
     featured: false,
