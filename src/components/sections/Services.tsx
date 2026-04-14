@@ -1,7 +1,34 @@
 "use client"
+import { useEffect, useRef, useState } from "react"
 import { useScrollReveal } from "@/hooks/useScrollReveal"
 import Container from "@/components/ui/Container"
 import { SERVICES, type ServiceVariant } from "@/constants/services"
+
+// ── Hook: revela descripción al entrar al viewport (solo móvil/tablet) ────────
+function useDescReveal() {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    if (window.matchMedia("(min-width: 1280px)").matches) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setVisible(true), 150)
+          observer.disconnect()
+        }
+      },
+      { threshold: 0.3 }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
+
+  return { ref, visible }
+}
 
 // ── SVG Icons ────────────────────────────────────────────────────────────────
 const IconCoffee = () => (
@@ -89,6 +116,55 @@ const cardStyles: Record<ServiceVariant, {
   },
 }
 
+// ── Tarjeta individual ────────────────────────────────────────────────────────
+function ServiceCard({
+  service,
+  s,
+}: {
+  service: (typeof SERVICES)[number]
+  s: (typeof cardStyles)[ServiceVariant]
+}) {
+  const { ref, visible } = useDescReveal()
+
+  return (
+    <div
+      ref={ref}
+      className={`group relative min-h-[280px] lg:min-h-[320px] xl:min-h-0 xl:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${s.card} ${s.offset}`}
+    >
+      {/* Icono */}
+      <div className={`absolute top-6 left-6 xl:top-10 xl:left-10 w-14 h-14 xl:w-16 xl:h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${s.iconBg} ${s.iconText}`}>
+        {ICONS[service.id]}
+      </div>
+
+      {/* Contenido inferior */}
+      <div className="absolute bottom-6 left-6 right-6 xl:bottom-10 xl:left-10 xl:right-10">
+        <h3 className="text-xl xl:text-2xl font-headline font-bold mb-4">
+          {service.title}
+        </h3>
+        <p
+          className={`text-sm leading-relaxed mb-4 xl:mb-6 transition-all duration-500
+            xl:opacity-0 xl:translate-y-4 xl:group-hover:opacity-100 xl:group-hover:translate-y-0 xl:transition-all xl:duration-500
+            ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-3"}
+            ${s.descText}`}
+        >
+          {service.description}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {service.tags.map((tag) => (
+            <span
+              key={tag}
+              className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full ${s.tagBg}`}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+// ── Sección principal ─────────────────────────────────────────────────────────
 export default function Services() {
   const ref = useScrollReveal()
 
@@ -117,40 +193,13 @@ export default function Services() {
 
         {/* Grid de cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {SERVICES.map((service) => {
-            const s = cardStyles[service.variant]
-            return (
-              <div
-                key={service.id}
-                className={`group relative min-h-[280px] lg:min-h-[320px] xl:min-h-0 xl:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${s.card} ${s.offset}`}
-              >
-                {/* Icono */}
-                <div className={`absolute top-6 left-6 xl:top-10 xl:left-10 w-14 h-14 xl:w-16 xl:h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${s.iconBg} ${s.iconText}`}>
-                  {ICONS[service.id]}
-                </div>
-
-                {/* Contenido inferior */}
-                <div className="absolute bottom-6 left-6 right-6 xl:bottom-10 xl:left-10 xl:right-10">
-                  <h3 className="text-xl xl:text-2xl font-headline font-bold mb-4">
-                    {service.title}
-                  </h3>
-                  <p className={`text-sm leading-relaxed mb-4 xl:mb-6 xl:opacity-0 xl:group-hover:opacity-100 xl:translate-y-4 xl:group-hover:translate-y-0 xl:transition-all xl:duration-500 ${s.descText}`}>
-                    {service.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
-                    {service.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className={`px-3 py-1 text-[10px] uppercase tracking-wider font-bold rounded-full ${s.tagBg}`}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            )
-          })}
+          {SERVICES.map((service) => (
+            <ServiceCard
+              key={service.id}
+              service={service}
+              s={cardStyles[service.variant]}
+            />
+          ))}
         </div>
       </Container>
     </section>
