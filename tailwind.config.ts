@@ -44,6 +44,9 @@ export default {
         display:  ["var(--font-champagne)", "serif"],
         // <- cambiar solo aquí en el futuro para cambiar fuentes globalmente
       },
+      borderRadius: {
+        card: "2.5rem",   // tarjetas de servicios y elementos con esquinas redondeadas grandes
+      },
       letterSpacing: {
         eyebrow: "0.2em",   // section eyebrow labels (Nuestro Trabajo, Portafolio completo…)
       },

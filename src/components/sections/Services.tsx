@@ -133,7 +133,7 @@ function ServiceCard({
   return (
     <div
       ref={ref}
-      className={`group relative min-h-[280px] lg:min-h-[320px] xl:min-h-0 xl:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${s.card} ${s.offset}`}
+      className={`group relative min-h-[280px] lg:min-h-[320px] xl:min-h-0 xl:aspect-[3/4] rounded-card overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${s.card} ${s.offset}`}
     >
       {/* Icono */}
       <div className={`absolute top-6 left-6 xl:top-10 xl:left-10 w-14 h-14 xl:w-16 xl:h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${s.iconBg} ${s.iconText}`}>
@@ -176,7 +176,7 @@ export default function Services() {
     <section
       ref={ref}
       id="services"
-      className="scroll-reveal py-20 lg:py-40 relative overflow-hidden line-art-bg scroll-mt-20"
+      className="scroll-reveal section-padding relative overflow-hidden line-art-bg scroll-mt-20"
     >
       {/* Blob decorativo */}
       <div className="absolute top-0 right-0 w-64 h-64 bg-primary-fixed/20 blur-3xl organic-blob" />
@@ -184,7 +184,7 @@ export default function Services() {
       <Container>
         {/* Header */}
         <div className="text-center mb-12 lg:mb-24 relative">
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-headline font-bold mb-6 text-on-surface">
+          <h2 className="section-heading mb-6">
             Tienes un proyecto{" "}
             <br />
             <span className="italic font-normal">especial?</span>

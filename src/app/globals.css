@@ -107,6 +107,22 @@ h1, h2, h3, h4 {
    UTILIDADES GLOBALES
    ═══════════════════════════════════════════════════════════ */
 
+/* ═══════════════════════════════════════════════════════════
+   COMPONENTES GLOBALES
+   Clases semánticas compartidas entre secciones.
+   Cambiar aquí afecta TODOS los usos en el sitio.
+   ═══════════════════════════════════════════════════════════ */
+@layer components {
+  /* Título principal de cada sección */
+  .section-heading {
+    @apply text-4xl md:text-5xl lg:text-7xl font-headline font-bold text-on-surface;
+  }
+  /* Padding vertical estándar de sección */
+  .section-padding {
+    @apply py-20 lg:py-40;
+  }
+}
+
 /* Patrón de líneas curvas — aplicado solo al Hero */
 .line-art-bg {
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10 10 Q 50 10 50 50 T 90 90' stroke='%2395442a' stroke-width='0.1' fill='transparent'/%3E%3C/svg%3E");

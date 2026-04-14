@@ -37,12 +37,12 @@ export default function HowItWorks() {
     <section
       ref={ref}
       id="how-it-works"
-      className="scroll-reveal py-20 lg:py-40 relative bg-surface-container-low scroll-mt-20"
+      className="scroll-reveal section-padding relative bg-surface-container-low scroll-mt-20"
     >
       <Container>
 
         <div className="flex flex-col md:flex-row gap-12 items-end mb-12 lg:mb-24">
-          <h2 className="text-4xl md:text-5xl lg:text-7xl font-headline font-bold text-on-surface flex-1">
+          <h2 className="section-heading flex-1">
             Tu piensalo{" "}
             <span className="block italic font-normal text-primary">
               nosotros lo creamos
@@ -70,11 +70,11 @@ export default function HowItWorks() {
           ))}
 
           <svg
-            className="hidden md:block absolute top-1/2 left-0 w-full h-32 -z-10 opacity-10 pointer-events-none"
+            className="hidden md:block absolute top-1/2 left-0 w-full h-32 -z-10 opacity-10 pointer-events-none text-primary"
             fill="none"
             viewBox="0 0 1000 100"
           >
-            <path d="M0 50 Q 250 100 500 50 T 1000 50" stroke="#95442a" strokeDasharray="10 10" strokeWidth="2" />
+            <path d="M0 50 Q 250 100 500 50 T 1000 50" stroke="currentColor" strokeDasharray="10 10" strokeWidth="2" />
           </svg>
         </div>
 

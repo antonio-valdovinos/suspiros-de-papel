@@ -35,7 +35,7 @@ export default function PortfolioPreview() {
             <p className="text-primary text-xs font-bold uppercase tracking-eyebrow mb-4">
               Nuestro Trabajo
             </p>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-headline font-bold text-on-surface leading-tight">
+            <h2 className="section-heading leading-tight">
               Piezas creadas{" "}
               <br className="hidden lg:block" />
               <span className="italic font-normal">con alma.</span>
