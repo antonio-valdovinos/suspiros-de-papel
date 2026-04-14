@@ -13,7 +13,7 @@ export default function HeroImage() {
           alt="Proceso de sublimación artesanal — Suspiros De Papel"
           fill
           sizes="(max-width: 768px) 100vw, 40vw"
-          className="object-cover scale-110 hover:scale-100 transition-transform duration-1000"
+          className="object-cover md:object-center scale-110 hover:scale-100 transition-transform duration-1000"
           priority
         />
       </div>

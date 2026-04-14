@@ -39,9 +39,9 @@ export default {
         whatsapp:                   "#25D366",   // WhatsApp brand color
       },
       fontFamily: {
-        headline: ["var(--font-noto-serif)", "serif"],
+        headline: ["var(--font-champagne)", "serif"],
         body:     ["var(--font-plus-jakarta)", "sans-serif"],
-        display:  ["var(--font-noto-serif)", "serif"],
+        display:  ["var(--font-champagne)", "serif"],
         // <- cambiar solo aquí en el futuro para cambiar fuentes globalmente
       },
       letterSpacing: {
