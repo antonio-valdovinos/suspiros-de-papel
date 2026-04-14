@@ -50,19 +50,25 @@ export default function Navbar() {
       <Container>
         <nav className="flex justify-between items-center py-4">
           {/* LOGO */}
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-            className="cursor-pointer bg-transparent border-none p-0 pr-8 mr-4 border-r border-outline-variant/30"
+          <Link
+            href="/"
+            onClick={(e) => {
+              if (isHome) {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: "smooth" })
+              }
+            }}
+            className="p-0 pr-8 mr-4 border-r border-outline-variant/30"
           >
             <Image
               src="/images/Logo.webp"
               alt="Suspiros De Papel"
-              width={180}
-              height={60}
+              width={120}
+              height={36}
               priority
-              className="object-contain w-auto"
+              className="object-contain w-auto h-8 md:h-10"
             />
-          </button>
+          </Link>
 
           {/* LINKS desktop */}
           <div className="hidden md:flex items-center gap-12">
