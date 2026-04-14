@@ -14,7 +14,7 @@ export default function HeroContent() {
       {/* Headline */}
       <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-on-surface leading-[1.1] tracking-tight italic">
         Detalles personalizados que cuentan
-        <span className="block font-display font-normal text-primary mt-2">
+        <span className="block font-display font-normal italic text-primary mt-1">
           tu historia
         </span>
       </h1>
