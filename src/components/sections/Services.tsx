@@ -109,7 +109,7 @@ export default function Services() {
         {/* Header */}
         <div className="text-center mb-12 lg:mb-24 relative">
           <h2 className="text-4xl md:text-5xl lg:text-7xl font-headline font-bold mb-6 text-on-surface">
-            ¿Tienes un proyecto{" "}
+            Tienes un proyecto{" "}
             <br />
             <span className="italic font-normal">especial?</span>
           </h2>

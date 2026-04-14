@@ -26,7 +26,7 @@ export default function CTA() {
 
           <div className="relative z-10 space-y-7">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-on-primary tracking-tight leading-tight">
-              ¿Tienes un proyecto{" "}
+              Tienes un proyecto{" "}
               <span className="block italic font-normal">especial?</span>
             </h2>
 
