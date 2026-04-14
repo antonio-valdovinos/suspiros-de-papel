@@ -14,7 +14,6 @@ const IconCoffee = () => (
     <line x1="14" y1="1" x2="14" y2="4" />
   </svg>
 )
-
 const IconLaser = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
     fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -25,7 +24,6 @@ const IconLaser = () => (
     <path d="M9 15h6" />
   </svg>
 )
-
 const IconSparkles = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
     fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -34,7 +32,6 @@ const IconSparkles = () => (
     <path d="M19 2l.5 1.5L21 4l-1.5.5L19 6l-.5-1.5L17 4l1.5-.5L19 2z" />
   </svg>
 )
-
 const IconCelebration = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24"
     fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -50,7 +47,6 @@ const IconCelebration = () => (
     <circle cx="16.5" cy="7.5" r="2.5" />
   </svg>
 )
-
 const ICONS: Record<string, React.ReactNode> = {
   sublimation: <IconCoffee />,
   laser:       <IconLaser />,
@@ -81,7 +77,7 @@ const cardStyles: Record<ServiceVariant, {
     iconText: "text-on-primary",
     tagBg:    "bg-on-primary/10 text-on-primary",
     descText: "text-on-primary/70",
-    offset:   "lg:translate-y-12",
+    offset:   "xl:translate-y-12",
   },
   "dark-primary": {
     card:     "bg-primary text-on-primary",
@@ -89,7 +85,7 @@ const cardStyles: Record<ServiceVariant, {
     iconText: "text-on-primary",
     tagBg:    "bg-on-primary/10 text-on-primary",
     descText: "text-on-primary/70",
-    offset:   "lg:translate-y-12",
+    offset:   "xl:translate-y-12",
   },
 }
 
@@ -120,25 +116,25 @@ export default function Services() {
         </div>
 
         {/* Grid de cards */}
-        <div className="grid grid-cols-1 landscape:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICES.map((service) => {
             const s = cardStyles[service.variant]
             return (
               <div
                 key={service.id}
-                className={`group relative rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col gap-5 p-8 xl:p-0 xl:aspect-[3/4] xl:flex-none xl:gap-0 ${s.card} ${s.offset}`}
+                className={`group relative min-h-[280px] lg:min-h-[320px] xl:min-h-0 xl:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${s.card} ${s.offset}`}
               >
                 {/* Icono */}
-                <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform xl:absolute xl:top-10 xl:left-10 ${s.iconBg} ${s.iconText}`}>
+                <div className={`absolute top-6 left-6 xl:top-10 xl:left-10 w-14 h-14 xl:w-16 xl:h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${s.iconBg} ${s.iconText}`}>
                   {ICONS[service.id]}
                 </div>
 
                 {/* Contenido inferior */}
-                <div className="flex flex-col gap-3 xl:absolute xl:bottom-10 xl:left-10 xl:right-10">
-                  <h3 className="text-2xl font-headline font-bold">
+                <div className="absolute bottom-6 left-6 right-6 xl:bottom-10 xl:left-10 xl:right-10">
+                  <h3 className="text-xl xl:text-2xl font-headline font-bold mb-4">
                     {service.title}
                   </h3>
-                  <p className={`text-sm leading-relaxed xl:opacity-0 xl:translate-y-4 xl:group-hover:opacity-100 xl:group-hover:translate-y-0 xl:transition-all xl:duration-500 ${s.descText}`}>
+                  <p className={`text-sm leading-relaxed mb-4 xl:mb-6 xl:opacity-0 xl:group-hover:opacity-100 xl:translate-y-4 xl:group-hover:translate-y-0 xl:transition-all xl:duration-500 ${s.descText}`}>
                     {service.description}
                   </p>
                   <div className="flex flex-wrap gap-2">
