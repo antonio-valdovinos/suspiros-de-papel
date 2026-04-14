@@ -12,19 +12,23 @@ function useDescReveal() {
   useEffect(() => {
     const el = ref.current
     if (!el) return
-    if (window.matchMedia("(min-width: 1280px)").matches) return
+
+    let timer: ReturnType<typeof setTimeout> | null = null
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setVisible(true), 150)
+          timer = setTimeout(() => setVisible(true), 150)
           observer.disconnect()
         }
       },
       { threshold: 0.3 }
     )
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (timer !== null) clearTimeout(timer)
+    }
   }, [])
 
   return { ref, visible }

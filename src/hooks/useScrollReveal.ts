@@ -14,6 +14,8 @@ export function useScrollReveal() {
     const el = ref.current
     if (!el) return
 
+    let timer: ReturnType<typeof setTimeout> | null = null
+
     // Primero ocultamos (ya que el CSS base es visible para SSR)
     el.classList.add("reveal-hidden")
 
@@ -21,7 +23,7 @@ export function useScrollReveal() {
       ([entry]) => {
         if (entry.isIntersecting) {
           // Pequeño delay para no competir con animaciones de scroll
-          setTimeout(() => {
+          timer = setTimeout(() => {
             el.classList.add("visible")
             observer.disconnect()
           }, 100)
@@ -31,7 +33,10 @@ export function useScrollReveal() {
     )
 
     observer.observe(el)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      if (timer !== null) clearTimeout(timer)
+    }
   }, [])
 
   return ref
