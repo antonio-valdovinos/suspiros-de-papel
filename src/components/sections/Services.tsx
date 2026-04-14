@@ -120,25 +120,25 @@ export default function Services() {
         </div>
 
         {/* Grid de cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 landscape:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-6">
           {SERVICES.map((service) => {
             const s = cardStyles[service.variant]
             return (
               <div
                 key={service.id}
-                className={`group relative aspect-[4/3] sm:aspect-[3/4] rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${s.card} ${s.offset}`}
+                className={`group relative rounded-[2.5rem] overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col gap-5 p-8 xl:p-0 xl:aspect-[3/4] xl:flex-none xl:gap-0 ${s.card} ${s.offset}`}
               >
                 {/* Icono */}
-                <div className={`absolute top-6 left-6 lg:top-10 lg:left-10 w-16 h-16 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform ${s.iconBg} ${s.iconText}`}>
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform xl:absolute xl:top-10 xl:left-10 ${s.iconBg} ${s.iconText}`}>
                   {ICONS[service.id]}
                 </div>
 
                 {/* Contenido inferior */}
-                <div className="absolute bottom-6 left-6 right-6 lg:bottom-10 lg:left-10 lg:right-10">
-                  <h3 className="text-2xl font-headline font-bold mb-4">
+                <div className="flex flex-col gap-3 xl:absolute xl:bottom-10 xl:left-10 xl:right-10">
+                  <h3 className="text-2xl font-headline font-bold">
                     {service.title}
                   </h3>
-                  <p className={`text-sm leading-relaxed mb-6 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-500 ${s.descText}`}>
+                  <p className={`text-sm leading-relaxed xl:opacity-0 xl:translate-y-4 xl:group-hover:opacity-100 xl:group-hover:translate-y-0 xl:transition-all xl:duration-500 ${s.descText}`}>
                     {service.description}
                   </p>
                   <div className="flex flex-wrap gap-2">

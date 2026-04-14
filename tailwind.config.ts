@@ -47,6 +47,9 @@ export default {
       letterSpacing: {
         eyebrow: "0.2em",   // section eyebrow labels (Nuestro Trabajo, Portafolio completo…)
       },
+      screens: {
+        landscape: { raw: "(orientation: landscape) and (max-width: 1023px)" },
+      },
     },
   },
   plugins: [],
