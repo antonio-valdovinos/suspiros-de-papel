@@ -140,7 +140,7 @@ export default function Footer() {
           <ul className="space-y-3 text-sm text-on-surface-variant font-light">
             <li><Link href="#services"  className="hover:text-primary transition-colors">Servicios</Link></li>
             <li><Link href="/portfolio" className="hover:text-primary transition-colors">Portfolio</Link></li>
-            <li><Link href="#faq"        className="hover:text-primary transition-colors">Preguntas Frecuentes</Link></li>
+            <li><Link href="/faq"        className="hover:text-primary transition-colors">Preguntas Frecuentes</Link></li>
             <li><Link href="/nuestra-historia" className="hover:text-primary transition-colors">Nuestra Historia</Link></li>
           </ul>
         </div>
