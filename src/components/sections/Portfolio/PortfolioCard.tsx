@@ -16,6 +16,7 @@ export default function PortfolioCard({ item, priority = false }: Props) {
     portrait:  "aspect-[3/4]",
     landscape: "aspect-[4/3]",
     square:    "aspect-square",
+    wide:      "aspect-video",
   }[item.aspectRatio]
 
   return (
@@ -32,7 +33,7 @@ export default function PortfolioCard({ item, priority = false }: Props) {
         src={item.src}
         alt={item.alt}
         fill
-        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 33vw"
         className="object-cover transition-transform duration-700 group-hover:scale-110"
         style={{ objectPosition: item.objectPosition ?? "center" }}
         priority={priority}

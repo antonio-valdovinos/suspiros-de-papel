@@ -12,7 +12,7 @@ export type PortfolioItem = {
   category: PortfolioCategory
   src: string
   alt: string
-  aspectRatio: "portrait" | "landscape" | "square"
+  aspectRatio: "portrait" | "landscape" | "square" | "wide"
   objectPosition?: string   // ej: "center", "top", "50% 30%"
   featured: boolean
 }
@@ -27,18 +27,44 @@ export const PORTFOLIO_CATEGORIES: { id: PortfolioCategory; label: string }[] = 
 ]
 
 // ─── CÓMO AGREGAR UNA IMAGEN ──────────────────────────────────────────────────
-// 1. Convierte la imagen a .webp y ponla en: public/images/portfolio/nombre-del-archivo.webp
-// 2. Copia el bloque de abajo y rellena los campos:
+//
+// 1. Convierte la imagen a .webp y colócala en:
+//      public/images/portfolio/nombre-descriptivo.webp
+//
+// 2. Elige el `aspectRatio` según la orientación REAL del archivo:
+//
+//      "portrait"   → imagen más alta que ancha  (relación 3:4)   ej: tazas, libretas verticales
+//      "landscape"  → imagen más ancha que alta  (relación 4:3)   ej: gorras, bolsas, grupales
+//      "square"     → imagen cuadrada o casi     (relación 1:1)   ej: productos planos, cenital
+//      "wide"       → panorámica                 (relación 16:9)  ej: abanico abierto, escenas
+//
+//    ⚠ Si el ratio no coincide con la imagen real, object-cover recortará
+//      partes importantes. Elige el ratio más cercano al archivo original.
+//
+// 3. Especifica `objectPosition` para controlar qué parte se muestra
+//    cuando object-cover recorta la imagen:
+//
+//      "center"        → predeterminado (centrado horizontal y vertical)
+//      "top"           → ancla el borde superior (útil si el sujeto está arriba)
+//      "bottom"        → ancla el borde inferior
+//      "50% 20%"       → punto focal: 50% horizontal, 20% desde arriba
+//      "right center"  → ancla el lado derecho, centrado vertical
+//
+//    Omítelo solo si el centro geométrico de la imagen coincide con el sujeto.
+//
+// 4. Copia este bloque y rellena los campos:
 //
 // {
 //   id: "id-unico-sin-espacios",        ← identificador único, nunca repetir
 //   title: "Nombre visible en hover",
 //   category: "tazas" | "textil" | "papeleria" | "accesorios" | "eventos",
-//   src: "/images/portfolio/nombre-del-archivo.webp",
-//   alt: "Descripción accesible del producto",
-//   aspectRatio: "portrait" | "landscape" | "square",
-//   featured: false,                    ← true solo si quieres que aparezca en el home (máx 6)
+//   src: "/images/portfolio/nombre-descriptivo.webp",
+//   alt: "Descripción accesible y concisa del producto",
+//   aspectRatio: "portrait",            ← ver punto 2 arriba
+//   objectPosition: "center",           ← ver punto 3 arriba; ajusta si el sujeto se recorta
+//   featured: false,                    ← true solo si debe aparecer en el home (máx 6 totales)
 // },
+//
 // ─────────────────────────────────────────────────────────────────────────────
 
 export const PORTFOLIO_ITEMS: PortfolioItem[] = [
