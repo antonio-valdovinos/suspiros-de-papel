@@ -13,6 +13,7 @@ export type PortfolioItem = {
   src: string
   alt: string
   aspectRatio: "portrait" | "landscape" | "square"
+  objectPosition?: string   // ej: "center", "top", "50% 30%"
   featured: boolean
 }
 
@@ -162,7 +163,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     category: "accesorios",
     src: "/images/portfolio/Abanico-personalizado.webp",
     alt: "Abanico artesanal con diseño e imagen personalizada",
-    aspectRatio: "portrait",
+    aspectRatio: "landscape",
     featured: true,
   },
   {
