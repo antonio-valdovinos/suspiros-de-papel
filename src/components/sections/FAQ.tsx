@@ -159,21 +159,8 @@ export default function FAQ() {
   return (
     <section id="faq" className="section-padding bg-surface scroll-mt-20">
       <Container>
-        {/* Header */}
-        <div
-          ref={ref as React.RefObject<HTMLDivElement>}
-          className="scroll-reveal text-center mb-16"
-        >
-          <h2 className="section-heading mb-4">
-            Preguntas <span className="italic font-normal">Frecuentes</span>
-          </h2>
-          <p className="text-on-surface-variant text-lg max-w-xl mx-auto font-light leading-relaxed">
-            Aquí resuelvo las dudas que me preguntan más seguido — con la misma honestidad con la que trabajo.
-          </p>
-        </div>
-
         {/* Accordion by category */}
-        <div className="max-w-3xl mx-auto space-y-12">
+        <div ref={ref as React.RefObject<HTMLDivElement>} className="scroll-reveal max-w-3xl mx-auto space-y-12">
           {FAQ_DATA.map((cat, ci) => (
             <div key={ci}>
               <h3 className="font-headline text-xl lg:text-2xl text-primary mb-4 pb-2 border-b border-outline-variant">
