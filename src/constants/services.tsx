@@ -1,3 +1,11 @@
+/**
+ * Service definitions for the Services section on the home page.
+ *
+ * Each entry maps to one card in the 4-column services grid.
+ * `variant` controls the card's color scheme — see `cardStyles` in Services.tsx.
+ * To add a service: append a new entry to SERVICES and add its icon to the
+ * `ICONS` map in Services.tsx keyed by the same `id`.
+ */
 export type ServiceVariant = "light" | "dark-tertiary" | "dark-primary"
 
 export type Service = {

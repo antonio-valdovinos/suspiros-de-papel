@@ -5,10 +5,15 @@ import { type PortfolioItem, type PortfolioCategory, filterByCategory } from "@/
 import PortfolioCard from "./PortfolioCard"
 import CategoryTabs from "./CategoryTabs"
 
+/** Props for the masonry-style portfolio grid. */
 type Props = {
+  /** Items to display; pass FEATURED_ITEMS for home preview or PORTFOLIO_ITEMS for full page. */
   initialItems: PortfolioItem[]
+  /** When true, renders the CategoryTabs filter bar above the grid. */
   showFilters?: boolean
+  /** When true, renders a "Cargar más" button once initialVisible items are shown. */
   showLoadMore?: boolean
+  /** Number of items visible before the load-more button appears. Defaults to all items. */
   initialVisible?: number
 }
 

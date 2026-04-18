@@ -94,6 +94,7 @@ export default function Footer() {
 
         {/* ── Brand — 2 columnas ───────────────────────────── */}
         <div className="space-y-5 md:col-span-2">
+          {/* AUDIT: Brand name is split for italic styling; cannot use SITE.name directly without losing the visual treatment. */}
           <div className="font-headline text-2xl text-primary font-bold">
             Suspiros <span className="italic font-normal">De Papel</span>
           </div>
@@ -188,7 +189,7 @@ export default function Footer() {
       {/* ── Bottom bar ──────────────────────────────────────── */}
       <div className="max-w-7xl mx-auto px-8 py-6 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-muted text-xs tracking-widest uppercase">
-          © 2025 Suspiros De Papel. Handcrafted Excellence.
+          © 2025 {SITE.name}. Handcrafted Excellence.
         </p>
         <div className="flex gap-8 text-[10px] font-bold tracking-widest uppercase text-muted">
           <Link href="#" className="hover:text-primary transition-colors">Términos</Link>

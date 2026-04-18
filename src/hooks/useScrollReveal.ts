@@ -3,9 +3,20 @@
 import { useEffect, useRef } from "react"
 
 /**
- * useScrollReveal
- * Agrega .reveal-hidden al montar y .visible cuando el elemento
- * entra al viewport. Así evitamos el problema de SSR con opacity-0.
+ * Attaches a scroll-based reveal animation to a DOM element.
+ *
+ * On mount the element receives `.reveal-hidden` (opacity 0, translated down).
+ * When 10% of the element enters the viewport, `.visible` is added after a
+ * 100 ms delay, triggering the CSS transition defined in globals.css.
+ *
+ * Starting visible (no class) ensures SSR output is readable without JS.
+ * The hook adds the hidden class client-side to avoid a flash of invisible content.
+ *
+ * @returns A ref to attach to the target HTMLElement.
+ *
+ * @example
+ * const ref = useScrollReveal()
+ * return <section ref={ref} className="scroll-reveal">...</section>
  */
 export function useScrollReveal() {
   const ref = useRef<HTMLElement>(null)
@@ -16,20 +27,20 @@ export function useScrollReveal() {
 
     let timer: ReturnType<typeof setTimeout> | null = null
 
-    // Primero ocultamos (ya que el CSS base es visible para SSR)
+    // Hide the element initially (CSS base is visible for SSR)
     el.classList.add("reveal-hidden")
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Pequeño delay para no competir con animaciones de scroll
+          // Small delay to avoid competing with scroll momentum animations
           timer = setTimeout(() => {
             el.classList.add("visible")
             observer.disconnect()
           }, 100)
         }
       },
-      { threshold: 0.1 } // 10% visible antes de disparar
+      { threshold: 0.1 } // fire when 10% is visible
     )
 
     observer.observe(el)

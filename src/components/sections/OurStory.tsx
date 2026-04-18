@@ -15,7 +15,7 @@ function StorySection() {
     >
       <Container>
         <div className="max-w-3xl mx-auto">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="section-eyebrow mb-4">
             Cómo empezó todo
           </p>
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-on-surface mb-8">
@@ -141,7 +141,7 @@ function ValuesSection() {
     >
       <Container>
         <div className="text-center mb-14">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="section-eyebrow mb-4">
             Lo que me define
           </p>
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-on-surface">
@@ -180,7 +180,7 @@ function HowWeWorkSection() {
     >
       <Container>
         <div className="max-w-3xl mx-auto">
-          <p className="text-primary text-xs font-bold uppercase tracking-widest mb-4">
+          <p className="section-eyebrow mb-4">
             Cómo trabajamos
           </p>
           <h2 className="font-headline text-4xl md:text-5xl font-bold text-on-surface mb-8">

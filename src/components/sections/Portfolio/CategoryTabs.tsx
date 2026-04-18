@@ -2,8 +2,11 @@
 
 import { type PortfolioCategory, PORTFOLIO_CATEGORIES } from "@/constants/portfolio"
 
+/** Props for the CategoryTabs filter bar. */
 type Props = {
+  /** The currently selected category id. */
   active: PortfolioCategory
+  /** Called when the user selects a different category tab. */
   onChange: (cat: PortfolioCategory) => void
 }
 

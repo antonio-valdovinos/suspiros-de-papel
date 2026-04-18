@@ -62,7 +62,7 @@ export default function Navbar() {
           >
             <Image
               src="/images/Logo.webp"
-              alt="Suspiros De Papel"
+              alt={SITE.name}
               width={120}
               height={36}
               priority
@@ -117,9 +117,13 @@ export default function Navbar() {
   )
 }
 
+/** Props for an individual navigation link. */
 type NavLinkProps = {
+  /** Destination — in-page anchor (e.g. "#services") or route (e.g. "/portfolio"). */
   href: string
+  /** Optional callback fired after navigation, used to close the mobile menu. */
   onClick?: () => void
+  /** When true, applies mobile-specific padding and font size. */
   mobile?: boolean
   children: React.ReactNode
 }

@@ -1,3 +1,15 @@
+/**
+ * Portfolio item definitions, category list, and filter utilities.
+ *
+ * Consumed by: PortfolioPreview (featured items on home), PortfolioGrid (full
+ * portfolio page), PortfolioCard (individual image card).
+ *
+ * FEATURED_ITEMS — items where `featured: true` (max 6 recommended for home grid).
+ * filterByCategory — returns items matching a given PortfolioCategory.
+ *
+ * To add new images, follow the step-by-step guide in the CÓMO AGREGAR UNA
+ * IMAGEN comment block below.
+ */
 export type PortfolioCategory =
   | "todo"
   | "tazas"

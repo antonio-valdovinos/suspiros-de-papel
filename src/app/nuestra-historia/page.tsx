@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
+import { SITE } from "@/constants/site"
 import Container from "@/components/ui/Container"
 import OurStory from "@/components/sections/OurStory"
 
 export const metadata: Metadata = {
-  title: "Nuestra Historia | Suspiros De Papel",
+  title: `Nuestra Historia | ${SITE.name}`,
   description:
     "Conoce a Yahaira, la persona detrás de Suspiros de Papel. Desde marzo de 2022, más de 5,000 pedidos personalizados hechos con cuidado desde Zihuatanejo para todo México.",
 }
@@ -15,8 +16,8 @@ export default function OurStoryPage() {
       <section className="pt-32 pb-20 lg:pt-40 lg:pb-28 bg-surface-container-low">
         <Container>
           <div className="max-w-3xl">
-            <p className="text-primary text-xs font-bold uppercase tracking-widest mb-5">
-              Suspiros De Papel
+            <p className="section-eyebrow mb-5">
+              {SITE.name}
             </p>
             <h1 className="font-headline text-5xl md:text-6xl lg:text-7xl font-bold text-on-surface mb-6">
               Nuestra{" "}

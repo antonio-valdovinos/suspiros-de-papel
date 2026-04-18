@@ -1,4 +1,6 @@
+/** Props for the Container layout wrapper. */
 type ContainerProps = {
+  /** Page content to center within the max-width constraint. */
   children: React.ReactNode
 }
 

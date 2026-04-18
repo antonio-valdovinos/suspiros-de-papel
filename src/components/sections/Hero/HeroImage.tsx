@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { SITE } from "@/constants/site"
 
 export default function HeroImage() {
   return (
@@ -10,7 +11,7 @@ export default function HeroImage() {
       <div className="relative z-10 h-[280px] lg:h-auto lg:aspect-[4/5] rounded-2xl lg:rounded-[3rem] overflow-hidden shadow-2xl lg:rotate-2 lg:hover:rotate-0 transition-transform duration-700">
         <Image
           src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZKu6nIZoUXBe0LdBJgbVjrJckVjSbOryprH-g1VxwmZViOAHWD2iHjQPwAdUqGQZHZhwS0sLos0VTLFX4parPXAVfBigdCq_d8C1ezuNrkE1RlyhkCpNNEs1L8Gpr9JfQ79uLHWpudqIguBMoY0e3BI6Zxp-TO55vfMmZPFWm1f27DT-1eRa0r2zAY4ykZtm-fqJRV5HgrP3UDVDRKjqTngwiqMmULsrpN928tgDPA9IsWupq8ZqBacwmdMkXqZiAn-aLac1ncWA"
-          alt="Proceso de sublimación artesanal — Suspiros De Papel"
+          alt={`Proceso de sublimación artesanal — ${SITE.name}`}
           fill
           sizes="(max-width: 768px) 100vw, 40vw"
           className="object-cover md:object-center scale-110 hover:scale-100 transition-transform duration-1000"

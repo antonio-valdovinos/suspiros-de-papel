@@ -1,12 +1,18 @@
 import Link from "next/link"
 import { clsx } from "clsx"
 
+/** Props for the Button component. */
 type ButtonProps = {
   children: React.ReactNode
+  /** When provided, renders a Next.js Link instead of a <button>. */
   href?: string
+  /** "primary" — filled pill with shadow; "ghost" — borderless underline link. */
   variant?: "primary" | "ghost"
+  /** Additional Tailwind classes merged onto the base styles. */
   className?: string
+  /** Forwarded to the underlying <a> element (e.g. "_blank"). */
   target?: string
+  /** Forwarded to the underlying <a> element (e.g. "noopener noreferrer"). */
   rel?: string
 }
 

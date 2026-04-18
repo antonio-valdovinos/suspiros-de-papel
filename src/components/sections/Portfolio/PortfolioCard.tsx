@@ -3,8 +3,11 @@
 import Image from "next/image"
 import { type PortfolioItem, PORTFOLIO_CATEGORIES } from "@/constants/portfolio"
 
+/** Props for a single portfolio image card. */
 type Props = {
+  /** Portfolio item data from PORTFOLIO_ITEMS in constants/portfolio.ts. */
   item: PortfolioItem
+  /** When true, Next.js Image is loaded with priority (eager). Use for above-the-fold cards. */
   priority?: boolean
 }
 

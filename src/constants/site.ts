@@ -1,3 +1,10 @@
+/**
+ * Single source of truth for all brand-level data.
+ *
+ * Consumed by: Navbar, Footer, CTA, HeroContent, FAQ, OurStory, page metadata.
+ * To extend: add new fields here and import where needed — never hardcode brand
+ * values (name, phone, social URLs) inside components.
+ */
 export const SITE = {
   name: "Suspiros De Papel",
   tagline: "Personalización con Alma",

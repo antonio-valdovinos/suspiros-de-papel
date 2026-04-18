@@ -1,6 +1,7 @@
 import "./globals.css"
 import { Noto_Serif, Plus_Jakarta_Sans } from "next/font/google"
 import localFont from "next/font/local"
+import { SITE } from "@/constants/site"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 
@@ -23,9 +24,8 @@ const champagne = localFont({
 })
 
 export const metadata = {
-  title: "Suspiros De Papel | Personalización con Alma",
-  description:
-    "Sublimación, grabado láser y papelería creativa diseñada para momentos que merecen ser eternos.",
+  title: `${SITE.name} | ${SITE.tagline}`,
+  description: SITE.description,
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

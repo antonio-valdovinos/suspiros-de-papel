@@ -113,13 +113,17 @@ h1, h2, h3, h4 {
    Cambiar aquí afecta TODOS los usos en el sitio.
    ═══════════════════════════════════════════════════════════ */
 @layer components {
-  /* Título principal de cada sección */
+  /* Primary heading of each section */
   .section-heading {
     @apply text-4xl md:text-5xl lg:text-7xl font-headline font-bold text-on-surface;
   }
-  /* Padding vertical estándar de sección */
+  /* Standard vertical padding for sections */
   .section-padding {
     @apply py-20 lg:py-40;
+  }
+  /* Small caps eyebrow label used above section headings (brand color, uppercase, tight tracking) */
+  .section-eyebrow {
+    @apply text-primary text-xs font-bold uppercase tracking-widest;
   }
 }
 

@@ -1,10 +1,11 @@
 import type { Metadata } from "next"
+import { SITE } from "@/constants/site"
 import Container from "@/components/ui/Container"
 import PortfolioGrid from "@/components/sections/Portfolio/PortfolioGrid"
 import { PORTFOLIO_ITEMS } from "@/constants/portfolio"
 
 export const metadata: Metadata = {
-  title: "Portafolio | Suspiros De Papel",
+  title: `Portafolio | ${SITE.name}`,
   description:
     "Explora nuestra colección completa de piezas personalizadas: tazas, textil, papelería, accesorios y regalos para eventos.",
 }
